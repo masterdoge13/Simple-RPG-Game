@@ -11,3 +11,11 @@ This is a simple turn-based role playing game. Meant for anyone looking to pass 
 ## My interest
 
 I have chosen to create a small game as I aspire to become a game developer. Having played games my entire life, I loved the satisfaction of overcoming challenges that video games provide. One day, I wish to create something that can give that feeling of accomplishment to others and hopefully inspire them to create something great themselves. This project will be a great experience for me to improve as both a programmer and a developer.
+
+## User Stories
+
+- As a user, I want to be able to select equipment and add it to my inventory
+- As a user, I want to be able to view the list of equipment inside my inventory
+- As a user, I want to be able to customize my starting stats at the beginning of the game
+- As a user, I want to be able to attack an enemy and make it take damage
+- As a user, I want to be able to select equipment from my inventory and equip it to my character
