@@ -2,23 +2,54 @@ package model;
 
 public class Player {
 
-    //EFFECTS: creates a player with the given name
-    public Player(String name) {
+    // EFFECTS: creates a player with the given name, attack, and max health
+    public Player(String name, int attack, int maxHealth) {
 
     }
     
-    //EFFECTS: returns the player's health
-    public int getHealth() {
+    // REQUIRES: getStatPoints() > 0
+    // MODIFIES: this
+    // EFFECTS: increases player's max health by a fixed increment and decreases free stat points by 1
+    public void increaseMaxHealth() {
+        //stub
+    }
+
+    // REQUIRES: getStatPoints() > 0
+    // MODIFIES: this
+    // EFFECTS: increases player's Attack by a fixed increment and decreases free stat points by 1
+    public void increaseAttack() {
+        //stub
+    }
+
+    // EFFECTS: returns the player's max health
+    public int getMaxHealth() {
         return -1; //stub
     }
 
-    //EFFECTS: returns the player's attack
+    // EFFECTS: returns the player's current health
+    public int getCurrentHealth() {
+        return -1; //stub
+    }
+
+    // EFFECTS: returns the player's attack
     public int getAttack() {
         return -1; //stub
     }
 
-    //EFFECTS: returns the player's name
+    // EFFECTS: returns the player's name
     public String getName() {
-        return "";
+        return ""; //stub
     }
+
+    // EFFECTS: returns the player's level
+    public int getLevel() {
+        return -1; //stub
+    }
+
+    // EFFECTS: returns the player's free stat points
+    public int getStatPoints() {
+        return -1; //stub
+    }
+
+
 }
