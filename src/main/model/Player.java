@@ -2,9 +2,10 @@ package model;
 
 public class Player {
 
+    // REQUIRES: attack > 0 && maxHealth > 0
     // EFFECTS: creates a player with the given name, attack, and max health
     public Player(String name, int attack, int maxHealth) {
-
+        //stub
     }
     
     // REQUIRES: getStatPoints() > 0
@@ -14,10 +15,50 @@ public class Player {
         //stub
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets current health to max health
+    public void fullHeal() {
+        //stub
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: increases current health by amount but not more than max health
+    public void healHealth(int amount) {
+        //stub
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: decreases health by amount but not less than 0
+    public void takeDamage(int amount) {
+        //stub
+    }
+    
     // REQUIRES: getStatPoints() > 0
     // MODIFIES: this
-    // EFFECTS: increases player's Attack by a fixed increment and decreases free stat points by 1
+    // EFFECTS: increases player's attack by a fixed increment and decreases free stat points by 1
     public void increaseAttack() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: increments player's level by 1
+    public void increaselevel() {
+        //stub
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: increases player's experience by amount specified
+    public void increaseExperience(int amount) {
+        //stub
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: increases player's stat points by amount specified
+    public void increaseStatPoints(int amount) {
         //stub
     }
 
@@ -43,6 +84,11 @@ public class Player {
 
     // EFFECTS: returns the player's level
     public int getLevel() {
+        return -1; //stub
+    }
+
+    // EFFECTS: returns the player's experience
+    public int getExperience() {
         return -1; //stub
     }
 
