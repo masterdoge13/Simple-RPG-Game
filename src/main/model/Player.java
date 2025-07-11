@@ -44,7 +44,7 @@ public class Player {
 
     // MODIFIES: this
     // EFFECTS: increments player's level by 1
-    public void increaselevel() {
+    public void increaseLevel() {
         //stub
     }
 

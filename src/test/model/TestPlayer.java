@@ -10,7 +10,7 @@ public class TestPlayer {
     private Player testPlayer;
     @BeforeEach
     void runBefore() {
-        testPlayer = new Player("test", 5, 100)
+        testPlayer = new Player("test", 5, 100);
     }
 
     @Test
@@ -82,14 +82,14 @@ public class TestPlayer {
 
     @Test
     void testHealHealth() {
-        testPlayer.takeDamage(5)
+        testPlayer.takeDamage(5);
         testPlayer.healHealth(4);
         assertEquals(99, testPlayer.getCurrentHealth());
     }
 
     @Test
     void testHealHealthMultiple() {
-        testPlayer.takeDamage(10)
+        testPlayer.takeDamage(10);
         testPlayer.healHealth(4);
         assertEquals(94, testPlayer.getCurrentHealth());
         testPlayer.healHealth(5);
@@ -98,14 +98,14 @@ public class TestPlayer {
 
     @Test
     void testHealHealthAtMax() {
-        testPlayer.takeDamage(10)
+        testPlayer.takeDamage(10);
         testPlayer.healHealth(10);
         assertEquals(100, testPlayer.getCurrentHealth());
     }
 
     @Test
     void testHealHealthOverMax() {
-        testPlayer.takeDamage(10)
+        testPlayer.takeDamage(10);
         testPlayer.healHealth(11);
         assertEquals(100, testPlayer.getCurrentHealth());
     }
@@ -162,4 +162,47 @@ public class TestPlayer {
         assertEquals(11, testPlayer.getMaxHealth());
         assertEquals(3, testPlayer.getStatPoints());
     }
+
+    @Test
+    void testIncreaseLevel() {
+        testPlayer.increaseLevel();
+        assertEquals(1, testPlayer.getLevel());
+    }
+
+    @Test
+    void testIncreaseLevelMultiple() {
+        testPlayer.increaseLevel();
+        assertEquals(1, testPlayer.getLevel());
+        testPlayer.increaseLevel();
+        assertEquals(2, testPlayer.getLevel());
+    }
+
+    @Test
+    void testIncreaseExperience() {
+        testPlayer.increaseExperience(5);
+        assertEquals(5, testPlayer.getExperience());
+    }
+
+    @Test
+    void testIncreaseExperienceMultiple() {
+        testPlayer.increaseExperience(5);
+        assertEquals(5, testPlayer.getExperience());
+        testPlayer.increaseExperience(9);
+        assertEquals(14, testPlayer.getExperience());
+    }
+
+    @Test
+    void testIncreaseStatPoints() {
+        testPlayer.increaseStatPoints(1);
+        assertEquals(1, testPlayer.getStatPoints());
+    }
+
+    @Test
+    void testIncreaseStatPointsMultiple() {
+        testPlayer.increaseStatPoints(1);
+        assertEquals(1, testPlayer.getStatPoints());
+        testPlayer.increaseStatPoints(5);
+        assertEquals(6, testPlayer.getStatPoints());
+    }
+
 }
