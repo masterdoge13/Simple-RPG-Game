@@ -140,7 +140,7 @@ public class TestPlayer {
     void testIncreaseAttack() {
         testPlayer.increaseStatPoints(5);
         testPlayer.increaseAttack();
-        assertEquals(8, testPlayer.getMaxHealth());
+        assertEquals(8, testPlayer.getAttack());
         assertEquals(4, testPlayer.getStatPoints());
     }
 
@@ -148,7 +148,7 @@ public class TestPlayer {
     void testIncreaseAttackAllPoints() {
         testPlayer.increaseStatPoints(1);
         testPlayer.increaseAttack();
-        assertEquals(8, testPlayer.getMaxHealth());
+        assertEquals(8, testPlayer.getAttack());
         assertEquals(0, testPlayer.getStatPoints());
     }
 
@@ -156,10 +156,10 @@ public class TestPlayer {
     void testIncreaseAttackMultiple() {
         testPlayer.increaseStatPoints(5);
         testPlayer.increaseAttack();
-        assertEquals(8, testPlayer.getMaxHealth());
+        assertEquals(8, testPlayer.getAttack());
         assertEquals(4, testPlayer.getStatPoints());
         testPlayer.increaseAttack();
-        assertEquals(11, testPlayer.getMaxHealth());
+        assertEquals(11, testPlayer.getAttack());
         assertEquals(3, testPlayer.getStatPoints());
     }
 
@@ -167,14 +167,17 @@ public class TestPlayer {
     void testIncreaseLevel() {
         testPlayer.increaseLevel();
         assertEquals(1, testPlayer.getLevel());
+        assertEquals(5, testPlayer.getStatPoints());
     }
 
     @Test
     void testIncreaseLevelMultiple() {
         testPlayer.increaseLevel();
         assertEquals(1, testPlayer.getLevel());
+        assertEquals(5, testPlayer.getStatPoints());
         testPlayer.increaseLevel();
         assertEquals(2, testPlayer.getLevel());
+        assertEquals(10, testPlayer.getStatPoints());
     }
 
     @Test

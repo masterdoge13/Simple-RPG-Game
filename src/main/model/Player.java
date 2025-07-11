@@ -2,100 +2,128 @@ package model;
 
 public class Player {
 
+    private static final int HEALTH_INCREMENT = 10;
+    private static final int ATTACK_INCREMENT = 3;
+    private static final int STAT_INCREMENT = 5;
+
+    private String name;
+    private int attack;
+    private int maxHealth;
+    private int currentHealth;
+    private int level = 0;
+    private int experience = 0;
+    private int statPoints = 0;
+
     // REQUIRES: attack > 0 && maxHealth > 0
-    // EFFECTS: creates a player with the given name, attack, and max health
+    // EFFECTS: creates a player with the given name, attack, and max health and sets current health to max health
     public Player(String name, int attack, int maxHealth) {
-        //stub
+        this.name = name;
+        this.attack = attack;
+        this.maxHealth = maxHealth;
+        this.currentHealth = maxHealth;
     }
-    
+
     // REQUIRES: getStatPoints() > 0
     // MODIFIES: this
-    // EFFECTS: increases player's max health and current health by a fixed increment and decreases free stat points by 1
+    // EFFECTS: increases player's max health and current health by a fixed
+    // increment and decreases free stat points by 1
     public void increaseMaxHealth() {
-        //stub
+        maxHealth += HEALTH_INCREMENT;
+        currentHealth += HEALTH_INCREMENT;
+        statPoints--;
     }
 
     // MODIFIES: this
     // EFFECTS: sets current health to max health
     public void fullHeal() {
-        //stub
+        currentHealth = maxHealth;
     }
 
     // REQUIRES: amount > 0
     // MODIFIES: this
     // EFFECTS: increases current health by amount but not more than max health
     public void healHealth(int amount) {
-        //stub
+        if (currentHealth + amount >= maxHealth) {
+            currentHealth = maxHealth;
+        } else {
+            currentHealth += amount;
+        }
     }
 
     // REQUIRES: amount > 0
     // MODIFIES: this
     // EFFECTS: decreases health by amount but not less than 0
     public void takeDamage(int amount) {
-        //stub
+        if (currentHealth - amount <= 0) {
+            currentHealth = 0;
+        } else {
+            currentHealth -= amount;
+        }
     }
-    
+
     // REQUIRES: getStatPoints() > 0
     // MODIFIES: this
-    // EFFECTS: increases player's attack by a fixed increment and decreases free stat points by 1
+    // EFFECTS: increases player's attack by a fixed increment and decreases free
+    // stat points by 1
     public void increaseAttack() {
-        //stub
+        attack += ATTACK_INCREMENT;
+        statPoints--;
     }
 
     // MODIFIES: this
-    // EFFECTS: increments player's level by 1
+    // EFFECTS: increments player's level by 1 and increases stat points by a fixed increment
     public void increaseLevel() {
-        //stub
+        level++;
+        increaseStatPoints(STAT_INCREMENT);
     }
 
     // REQUIRES: amount > 0
     // MODIFIES: this
     // EFFECTS: increases player's experience by amount specified
     public void increaseExperience(int amount) {
-        //stub
+        experience += amount;
     }
 
     // REQUIRES: amount > 0
     // MODIFIES: this
     // EFFECTS: increases player's stat points by amount specified
     public void increaseStatPoints(int amount) {
-        //stub
+        statPoints += amount;
     }
 
     // EFFECTS: returns the player's max health
     public int getMaxHealth() {
-        return -1; //stub
+        return maxHealth;
     }
 
     // EFFECTS: returns the player's current health
     public int getCurrentHealth() {
-        return -1; //stub
+        return currentHealth;
     }
 
     // EFFECTS: returns the player's attack
     public int getAttack() {
-        return -1; //stub
+        return attack;
     }
 
     // EFFECTS: returns the player's name
     public String getName() {
-        return ""; //stub
+        return name;
     }
 
     // EFFECTS: returns the player's level
     public int getLevel() {
-        return -1; //stub
+        return level;
     }
 
     // EFFECTS: returns the player's experience
     public int getExperience() {
-        return -1; //stub
+        return experience;
     }
 
     // EFFECTS: returns the player's free stat points
     public int getStatPoints() {
-        return -1; //stub
+        return statPoints;
     }
-
 
 }
