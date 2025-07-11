@@ -10,7 +10,7 @@ public class Player {
     
     // REQUIRES: getStatPoints() > 0
     // MODIFIES: this
-    // EFFECTS: increases player's max health by a fixed increment and decreases free stat points by 1
+    // EFFECTS: increases player's max health and current health by a fixed increment and decreases free stat points by 1
     public void increaseMaxHealth() {
         //stub
     }
