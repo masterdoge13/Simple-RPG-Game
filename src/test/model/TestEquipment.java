@@ -125,6 +125,18 @@ public class TestEquipment {
     }
 
     @Test
+    void testEquipmentToStringSword() {
+        assertEquals("[test sword] +0 Sword - Attack increase 1.5x - Damage reduction 0.0%", 
+        testSword.equipmentToString());
+    }
+
+    @Test
+    void testEquipmentToStringArmour() {
+        assertEquals("[test armour] +0 Armour - Attack increase 0.0x - Damage reduction 20.0%", 
+        testArmour.equipmentToString());
+    }
+
+    @Test
     void testGetNameSword() {
         assertEquals("test sword", testSword.getName());
     }
