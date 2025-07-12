@@ -36,11 +36,12 @@ public class Equipment {
         String item = null;
         if (type == EquipmentType.SWORD) {
             item = "Sword";
-        } else if (type == EquipmentType.ARMOUR) {
+        } 
+        if (type == EquipmentType.ARMOUR) {
             item = "Armour";
         }
-        description = "[" + name + "]" + " +" + upgradeNum + " " + item + " - Attack increase " + attackMod +
-        "x - Damage reduction " + (defenseMod * 100) + "%";
+        description = "[" + name + "]" + " +" + upgradeNum + " " + item + " - Attack increase " + attackMod 
+            + "x - Damage reduction " + (defenseMod * 100) + "%";
         return description;
     }
 
