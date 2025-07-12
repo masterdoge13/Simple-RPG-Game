@@ -2,28 +2,36 @@ package model;
 
 public class Equipment {
 
+    private String name;
+    private double attackMod;
+    private double defenseMod;
+    private EquipmentType type;
+
     // EFFECTS: creates an equipment with a name, attack modifier, defense modifier, and equipment type
     public Equipment(String name, double attackMod, double defenseMod, EquipmentType type) {
-        //stub
+        this.name = name;
+        this.attackMod = attackMod;
+        this.defenseMod = defenseMod;
+        this.type = type;
     }
 
     // EFFECTS: returns the name of the equipment
     public String getName() {
-        return ""; //stub
+        return name;
     }
 
     // EFFECTS: returns the attack modifier of the equipment
     public double getAttackMod() {
-        return -1; //stub
+        return attackMod;
     }
 
     // EFFECTS: returns the defense modifier of the equipment
     public double getDefenseMod() {
-        return -1; //stub
+        return defenseMod;
     }
 
     // EFFECTS: returns the equipment type
     public EquipmentType getType() {
-        return EquipmentType.SWORD;
+        return type;
     }
 }
