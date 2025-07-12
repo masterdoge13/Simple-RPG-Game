@@ -9,7 +9,7 @@ public class Inventory {
 
     // MODIFIES: this
     // EFFECTS: adds an equipment to the inventory
-    public void insertEquipment() {
+    public void insertEquipment(Equipment item) {
         //stub
     }
 
