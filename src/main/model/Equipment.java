@@ -15,6 +15,12 @@ public class Equipment {
         this.type = type;
     }
 
+    // MODIFIES: this
+    // EFFECTS: increments upgrade number by one up to max upgrade number and increases attack and defense modifiers
+    public void incrementUpgrade() {
+        //stub
+    }
+
     // EFFECTS: returns the name of the equipment
     public String getName() {
         return name;
@@ -33,5 +39,10 @@ public class Equipment {
     // EFFECTS: returns the equipment type
     public EquipmentType getType() {
         return type;
+    }
+
+    // EFFECTS: returns the upgrade number
+    public int getUpgradeNum() {
+        return -1; //stub
     }
 }
