@@ -6,6 +6,7 @@ public class Inventory {
 
     private ArrayList<Equipment> inventoryArray;
     // EFFECTS: creates an empty inventory
+    
     public Inventory() {
         inventoryArray = new ArrayList<Equipment>();
     }
