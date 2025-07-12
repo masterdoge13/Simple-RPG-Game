@@ -30,4 +30,9 @@ public class Inventory {
     public Equipment getEquipment(int invIndex) {
         return new Equipment(null, 0.0, 0.0, EquipmentType.SWORD);//stub
     }
+
+    // EFFECTS: returns the size of the inventory
+    public int getSize() {
+        return -1;//stub
+    }
 }
