@@ -71,7 +71,7 @@ public class TestInventory {
     @Test
     void testInventoryToStringSingle() {
         testInventory.insertEquipment(testArmour);
-        assertEquals("Inventory:\n" + testArmour.equipmentToString() + "/n", testInventory.inventoryToString());
+        assertEquals("Inventory:\n" + "0) " + testArmour.equipmentToString() + "\n", testInventory.inventoryToString());
     }
 
     @Test
@@ -79,8 +79,8 @@ public class TestInventory {
         testInventory.insertEquipment(testArmour);
         testInventory.insertEquipment(testSword);
         assertEquals("Inventory:\n" 
-        + testArmour.equipmentToString() + "/n" 
-        + testSword.equipmentToString() + "/n", testInventory.inventoryToString());
+        + "0) " + testArmour.equipmentToString() + "\n" 
+        + "1) " + testSword.equipmentToString() + "\n", testInventory.inventoryToString());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class TestInventory {
 
     @Test
     void testGetSizeEmpty() {
-        assertEquals(0, testInventory);
+        assertEquals(0, testInventory.getSize());
     }
 
     @Test
