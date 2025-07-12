@@ -32,7 +32,16 @@ public class Equipment {
 
     // EFFECTS: returns the equipment in a string
     public String equipmentToString() {
-        return "";//stub
+        String description;
+        String item = null;
+        if (type == EquipmentType.SWORD) {
+            item = "Sword";
+        } else if (type == EquipmentType.ARMOUR) {
+            item = "Armour";
+        }
+        description = "[" + name + "]" + " +" + upgradeNum + " " + item + " - Attack increase " + attackMod +
+        "x - Damage reduction " + (defenseMod * 100) + "%";
+        return description;
     }
 
     // EFFECTS: returns the name of the equipment
