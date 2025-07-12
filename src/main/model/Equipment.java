@@ -3,7 +3,7 @@ package model;
 public class Equipment {
 
     // EFFECTS: creates an equipment with a name, attack modifier, defense modifier, and equipment type
-    public Equipment(String name, float attackMod, float defenseMod, EquipmentType type) {
+    public Equipment(String name, double attackMod, double defenseMod, EquipmentType type) {
         //stub
     }
 
@@ -13,12 +13,12 @@ public class Equipment {
     }
 
     // EFFECTS: returns the attack modifier of the equipment
-    public float getAttackMod() {
+    public double getAttackMod() {
         return -1; //stub
     }
 
     // EFFECTS: returns the defense modifier of the equipment
-    public float getDefenseMod() {
+    public double getDefenseMod() {
         return -1; //stub
     }
 
