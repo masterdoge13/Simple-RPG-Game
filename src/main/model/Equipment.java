@@ -30,6 +30,11 @@ public class Equipment {
         }
     }
 
+    // EFFECTS: returns the equipment in a string
+    public String equipmentToString() {
+        return "";//stub
+    }
+
     // EFFECTS: returns the name of the equipment
     public String getName() {
         return name;
