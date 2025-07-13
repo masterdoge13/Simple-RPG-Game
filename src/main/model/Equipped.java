@@ -2,39 +2,53 @@ package model;
 
 public class Equipped {
 
+    private Equipment sword;
+    private Equipment armour;
+
     // EFFECTS: creates an equipped object with placeholder Equipment objects
     public Equipped() {
-        //stub
+        sword = new Equipment("unarmed", 0, 0, EquipmentType.SWORD);
+        armour = new Equipment("unarmoured", 0, 0, EquipmentType.ARMOUR);
     }
-    
+
     // MODIFIES: this, inventory
-    // EFFECTS: equips specified equipment, adds previous equipped object to inventory
+    // EFFECTS: equips specified equipment, adds previous equipped object to
+    // inventory
     public void equip(Equipment equipment, Inventory inventory) {
-        //stub
+        if (equipment.getType() == EquipmentType.SWORD) {
+            inventory.insertEquipment(sword);
+            sword = equipment;
+        }
+        if (equipment.getType() == EquipmentType.ARMOUR) {
+            inventory.insertEquipment(armour);
+            armour = equipment;
+        }
     }
 
     // EFFECTS: returns equipped items as a string
     public String equippedToString() {
-        return ""; //stub
+        return "Equipped:\n" + sword.equipmentToString() + "\n" + armour.equipmentToString()
+                + "\nDamage Multiplier: " + getTotalAttackMod()
+                + "x\nDamage Reduction: " + getTotalDefenseMod() * 100 + "%";
     }
 
     // EFFECTS: returns equipped sword
     public Equipment getSword() {
-        return new Equipment(null, 0, 0, null);//stub
+        return sword;
     }
 
     // EFFECTS: returns equipped armour
     public Equipment getArmour() {
-        return new Equipment(null, 0, 0, null);//stub
+        return armour;
     }
 
     // EFFECTS: returns total attack modifier
     public double getTotalAttackMod() {
-        return -1;
+        return sword.getAttackMod() + armour.getAttackMod();
     }
 
     // EFFECTS: returns total defense modifier
     public double getTotalDefenseMod() {
-        return -1;
+        return 1 - ((1 - armour.getDefenseMod()) * (1 - sword.getDefenseMod()));
     }
 }

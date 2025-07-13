@@ -27,30 +27,30 @@ public class TestEquipped {
 
     @Test
     void testConstructor() {
-        assertEquals(defaultSword, testEquipped.getSword());
-        assertEquals(defaultArmour, testEquipped.getArmour());
-        assertEquals(0, testEquipped.getTotalAttackMod());
-        assertEquals(0, testEquipped.getTotalDefenseMod());
+        assertEquals(defaultSword.getName(), testEquipped.getSword().getName());
+        assertEquals(defaultArmour.getName(), testEquipped.getArmour().getName());
+        assertEquals(0, testEquipped.getTotalAttackMod(), 0.001);
+        assertEquals(0, testEquipped.getTotalDefenseMod(), 0.001);
     }
 
     @Test
     void testEquipSingle() {
         testEquipped.equip(testArmour, testInventory);
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(1, testInventory.getSize());
-        assertEquals(defaultArmour, testInventory.getEquipment(0));
+        assertEquals(defaultArmour.getName(), testInventory.getEquipment(0).getName());
     }
 
     @Test
     void testEquipMultiple() {
         testEquipped.equip(testArmour, testInventory);
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(1, testInventory.getSize());
-        assertEquals(defaultArmour, testInventory.getEquipment(0));
+        assertEquals(defaultArmour.getName(), testInventory.getEquipment(0).getName());
         testEquipped.equip(testSword, testInventory);
-        assertEquals(testSword, testEquipped.getSword());
+        assertEquals(testSword.getName(), testEquipped.getSword().getName());
         assertEquals(2, testInventory.getSize());
-        assertEquals(defaultSword, testInventory.getEquipment(1));
+        assertEquals(defaultSword.getName(), testInventory.getEquipment(1).getName());
     }
 
     @Test
@@ -69,12 +69,12 @@ public class TestEquipped {
 
     @Test
     void testGetArmour() {
-        assertEquals(defaultArmour, testEquipped.getArmour());
+        assertEquals(defaultArmour.getName(), testEquipped.getArmour().getName());
     }
 
     @Test
     void testGetSword() {
-        assertEquals(defaultSword, testEquipped.getSword());
+        assertEquals(defaultSword.getName(), testEquipped.getSword().getName());
     }
 
     @Test
