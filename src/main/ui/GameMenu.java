@@ -15,6 +15,12 @@ public class GameMenu {
     }
 
     // MODIFIES: this
+    // EFFECTS: processes user input
+    private void runGameMenu() {
+        //stub
+    }
+
+    // MODIFIES: this
     // EFFECTS: initializes game data, takes input for player name
     public void init() {
         //stub
