@@ -1,5 +1,6 @@
 package model;
 
+// All types of equipment with stat modifiers and upgradability
 public class Equipment {
 
     private static final double ATTACK_MODIFIER_INCREMENT = 0.1;

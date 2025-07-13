@@ -1,5 +1,6 @@
 package model;
 
+// Information and stats from equipped equipment
 public class Equipped {
 
     private Equipment sword;

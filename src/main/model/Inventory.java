@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// A class that stores unequipped equipment
 public class Inventory {
 
     private ArrayList<Equipment> inventoryArray;

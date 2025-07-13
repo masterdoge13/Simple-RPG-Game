@@ -1,5 +1,6 @@
 package model;
 
+// Contains player information and stats
 public class Player {
 
     private static final int HEALTH_INCREMENT = 10;
