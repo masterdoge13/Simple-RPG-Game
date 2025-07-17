@@ -21,6 +21,7 @@ public class TestPlayer {
         assertEquals(0, testPlayer.getLevel());
         assertEquals(0, testPlayer.getExperience());
         assertEquals(0, testPlayer.getStatPoints());
+        assertEquals(0, testPlayer.getGold());
     }
 
     @Test
@@ -194,6 +195,67 @@ public class TestPlayer {
     }
 
     @Test
+    void testIncreaseExperiencePastThreshold() {
+        testPlayer.increaseExperience(99);
+        assertEquals(99, testPlayer.getExperience());
+        testPlayer.increaseExperience(1);
+        assertEquals(1, testPlayer.getLevel());
+        assertEquals(5, testPlayer.getStatPoints());
+        assertEquals(0, testPlayer.getExperience());
+        testPlayer.increaseExperience(1);
+        assertEquals(1, testPlayer.getLevel());
+        assertEquals(5, testPlayer.getStatPoints());
+        assertEquals(1, testPlayer.getExperience());
+    }
+
+    @Test
+    void testIncreaseExperienceTriplePastThreshold() {
+        testPlayer.increaseExperience(300);
+        assertEquals(0, testPlayer.getExperience());
+        assertEquals(3, testPlayer.getLevel());
+        assertEquals(15, testPlayer.getStatPoints());
+    }
+
+    @Test
+    void testIncreaseExperiencePastThresholdMultiple() {
+        testPlayer.increaseExperience(140);
+        assertEquals(40, testPlayer.getExperience());
+        assertEquals(1, testPlayer.getLevel());
+        assertEquals(5, testPlayer.getStatPoints());
+        testPlayer.increaseExperience(80);
+        assertEquals(20, testPlayer.getExperience());
+        assertEquals(2, testPlayer.getLevel());
+        assertEquals(10, testPlayer.getStatPoints());
+        testPlayer.increaseExperience(110);
+        assertEquals(30, testPlayer.getExperience());
+        assertEquals(3, testPlayer.getLevel());
+        assertEquals(15, testPlayer.getStatPoints());
+    }
+
+    @Test
+    void testIncreaseExperiencePastThresholdMultipleUseStat() {
+        testPlayer.increaseExperience(140);
+        assertEquals(40, testPlayer.getExperience());
+        assertEquals(1, testPlayer.getLevel());
+        testPlayer.increaseAttack();
+        assertEquals(4, testPlayer.getStatPoints());
+        testPlayer.increaseExperience(80);
+        assertEquals(20, testPlayer.getExperience());
+        assertEquals(2, testPlayer.getLevel());
+        testPlayer.increaseMaxHealth();
+        testPlayer.increaseMaxHealth();
+        assertEquals(7, testPlayer.getStatPoints());
+        testPlayer.increaseExperience(110);
+        assertEquals(30, testPlayer.getExperience());
+        assertEquals(3, testPlayer.getLevel());
+        assertEquals(12, testPlayer.getStatPoints());
+        testPlayer.increaseAttack();
+        testPlayer.increaseAttack();
+        testPlayer.increaseAttack();
+        assertEquals(9, testPlayer.getStatPoints());
+    }
+    
+    @Test
     void testIncreaseStatPoints() {
         testPlayer.increaseStatPoints(1);
         assertEquals(1, testPlayer.getStatPoints());
@@ -207,4 +269,49 @@ public class TestPlayer {
         assertEquals(6, testPlayer.getStatPoints());
     }
 
+    @Test
+    void testIncreaseGold() {
+        testPlayer.increaseGold(10);
+        assertEquals(10, testPlayer.getGold());
+    }
+
+    @Test
+    void testIncreaseGoldMultiple() {
+        testPlayer.increaseGold(9);
+        assertEquals(9, testPlayer.getGold());
+        testPlayer.increaseGold(21);
+        assertEquals(30, testPlayer.getGold());
+        testPlayer.increaseGold(92);
+        assertEquals(122, testPlayer.getGold());
+        testPlayer.increaseGold(23);
+        assertEquals(145, testPlayer.getGold());
+    }
+
+    @Test
+    void testDecreaseGold() {
+        testPlayer.increaseGold(1000000);
+        assertEquals(1000000, testPlayer.getGold());
+        testPlayer.decreaseGold(10);
+        assertEquals(999990, testPlayer.getGold());
+    }
+
+    @Test
+    void testDecreaseGoldMultiple() {
+        testPlayer.increaseGold(100000);
+        assertEquals(100000, testPlayer.getGold());
+        testPlayer.decreaseGold(10);
+        assertEquals(99990, testPlayer.getGold());
+        testPlayer.decreaseGold(10);
+        assertEquals(99980, testPlayer.getGold());
+        testPlayer.decreaseGold(10);
+        assertEquals(99970, testPlayer.getGold());
+        testPlayer.decreaseGold(10);
+        assertEquals(99960, testPlayer.getGold());
+        testPlayer.decreaseGold(99910);
+        assertEquals(50, testPlayer.getGold());
+        testPlayer.decreaseGold(49);
+        assertEquals(1, testPlayer.getGold());
+        testPlayer.decreaseGold(1);
+        assertEquals(0, testPlayer.getGold());
+    }
 }
