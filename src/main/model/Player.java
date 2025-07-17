@@ -6,14 +6,16 @@ public class Player {
     private static final int HEALTH_INCREMENT = 10;
     private static final int ATTACK_INCREMENT = 3;
     private static final int STAT_INCREMENT = 5;
+    private static final int EXPERIENCE_THRESHOLD = 100;
 
     private String name;
     private int attack;
     private int maxHealth;
     private int currentHealth;
-    private int level = 0;
-    private int experience = 0;
-    private int statPoints = 0;
+    private int level;
+    private int experience;
+    private int statPoints;
+    private int gold;
 
     // REQUIRES: attack > 0 && maxHealth > 0
     // EFFECTS: creates a player with the given name, attack, and max health and sets current health to max health
@@ -22,6 +24,11 @@ public class Player {
         this.attack = attack;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
+        level = 0;
+        experience = 0;
+        statPoints = 0;
+        gold = 0;
+
     }
 
     // REQUIRES: getStatPoints() > 0
@@ -83,6 +90,12 @@ public class Player {
     // EFFECTS: increases player's experience by amount specified and levels up if possible
     public void increaseExperience(int amount) {
         experience += amount;
+        if (experience >= EXPERIENCE_THRESHOLD) {
+            while (experience >= EXPERIENCE_THRESHOLD) {
+                experience -= EXPERIENCE_THRESHOLD;
+                increaseLevel();
+            }
+        }
     }
 
     // REQUIRES: amount > 0
@@ -92,18 +105,18 @@ public class Player {
         statPoints += amount;
     }
 
-    // REQUIRES: amount > 0
+    // REQUIRES: amount > 0 && amount <= gold
     // MODIFIES: this
     // EFFECTS: decreases gold
     public void decreaseGold(int amount) {
-
+        gold -= amount;
     }
 
     // REQUIRES: amount > 0
     // MODIFIES: this
     // EFFECTS: increases gold
     public void increaseGold(int amount) {
-
+        gold += amount;
     }
 
     // EFFECTS: returns the player's max health
@@ -143,6 +156,6 @@ public class Player {
 
     // EFFECTS: returns the player's gold
     public int getGold() {
-        return -1;//stub
+        return gold;
     }
 }
