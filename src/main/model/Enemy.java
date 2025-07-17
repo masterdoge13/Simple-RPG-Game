@@ -38,7 +38,6 @@ public class Enemy {
         return new Difficulty();//stub
     }
 
-    // MODIFIES: this
     // EFFECTS: returns true if enemy is killed
     public boolean isDead() {
         return false;//stub
