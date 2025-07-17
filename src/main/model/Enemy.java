@@ -17,6 +17,12 @@ public class Enemy {
     public int getGoldGain() {
         return -1;//stub
     }
+
+    // EFFECTS: returns the name
+    public String getName() {
+        return "";//stub
+    }
+
     // EFFECTS: returns the attack damage
     public int getAttack() {
         return -1;//stub
