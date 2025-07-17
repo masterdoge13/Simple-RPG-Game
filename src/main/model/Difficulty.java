@@ -26,7 +26,7 @@ public class Difficulty {
         if (difficultyValue == 0) {
             return 1;
         } else {
-            return 1 + 1 - Math.pow(9/10, difficultyDouble);
+            return 1 + 1 - Math.pow(9 / 10, difficultyDouble);
         }
     }
 
