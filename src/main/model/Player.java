@@ -80,7 +80,7 @@ public class Player {
 
     // REQUIRES: amount > 0
     // MODIFIES: this
-    // EFFECTS: increases player's experience by amount specified
+    // EFFECTS: increases player's experience by amount specified and levels up if possible
     public void increaseExperience(int amount) {
         experience += amount;
     }
@@ -90,6 +90,20 @@ public class Player {
     // EFFECTS: increases player's stat points by amount specified
     public void increaseStatPoints(int amount) {
         statPoints += amount;
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: decreases gold
+    public void decreaseGold(int amount) {
+
+    }
+
+    // REQUIRES: amount > 0
+    // MODIFIES: this
+    // EFFECTS: increases gold
+    public void increaseGold(int amount) {
+
     }
 
     // EFFECTS: returns the player's max health
@@ -127,4 +141,8 @@ public class Player {
         return statPoints;
     }
 
+    // EFFECTS: returns the player's gold
+    public int getGold() {
+        return -1;//stub
+    }
 }
