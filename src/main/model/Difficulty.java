@@ -2,29 +2,36 @@ package model;
 
 public class Difficulty {
 
+    int difficultyValue;
+
     // EFFECTS: creates a difficulty modifier
     public Difficulty() {
-        //stub
+        difficultyValue = 0;
     }
 
     // MODIFIES: this
     // EFFECTS: increments the difficulty number
     public void increaseDifficulty() {
-        //stub
+        difficultyValue++;
     }
 
     // EFFECTS: returns the equipment attack modifier difficulty increase
     public double getEquipmentAttackMod() {
-        return 0.0;//stub
+        return 1 + 0.25 * difficultyValue;
     }
 
     // EFFECTS: returns the equipment attack modifier difficulty increase
     public double getEquipmentDefenseMod() {
-        return 0.0;//stub
+        double difficultyDouble = difficultyValue;
+        if (difficultyValue == 0) {
+            return 1;
+        } else {
+            return 1 + 1 - Math.pow(9/10, difficultyDouble);
+        }
     }
 
     // EFFECTS: returns the difficulty number
     public int getDifficulty() {
-        return -1;//stub
+        return difficultyValue;
     }
 }
