@@ -2,51 +2,66 @@ package model;
 
 public class Enemy {
 
+    private String name;
+    private int attack;
+    private int health;
+    private int baseExperience;
+    private int baseGold;
+    private Difficulty difficulty;
+
+
     // REQUIRES: attack >= 0 && health > 0
     // EFFECTS: creates an enemy with the specified base attack, base health, and difficulty modifier
     public Enemy(String name, int attack, int health, Difficulty difficulty) {
-        //stub
+        this.name = name;
+        this.attack = (int) (attack * (1 + 0.5 * difficulty.getDifficulty()));
+        baseExperience = 100;
+        baseGold = 10;
+        this.health = (int) (health * (1 + 0.5 * difficulty.getDifficulty()));
+        this.difficulty = difficulty;
     }
 
     // EFFECTS: returns the experience gained on kill
     public int getExperienceGain() {
-        return -1;//stub
+        int finalExperience = (int) (baseExperience * (1 + 0.5 * difficulty.getDifficulty()));
+        return finalExperience;
     }
 
     // EFFECTS: returns the gold gained on kill
     public int getGoldGain() {
-        return -1;//stub
+        int finalGold = (int) (baseGold * (1 + 0.5 * difficulty.getDifficulty()));
+        return finalGold;
     }
 
     // EFFECTS: returns the name
     public String getName() {
-        return "";//stub
+        return name;
     }
 
     // EFFECTS: returns the attack damage
     public int getAttack() {
-        return -1;//stub
+        return attack;
     }
 
     // EFFECTS: returns the health
     public int getHealth() {
-        return -1;//stub
+        return health;
     }
 
     // EFFECTS: returns the difficulty of the enemy
     public Difficulty getDifficulty() {
-        return new Difficulty();//stub
+        return difficulty;
     }
 
     // EFFECTS: returns true if enemy is killed
     public boolean isDead() {
-        return false;//stub
+        return health <= 0;
     }
 
     // REQUIRES: damage >= 0
     // MODIFIES: this
     // EFFECTS: decreases health by damage
     public void takeDamage(int damage) {
-        //stub
+        health -= damage;
     }
 }

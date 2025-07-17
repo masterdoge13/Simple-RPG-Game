@@ -2,7 +2,7 @@ package model;
 
 public class Difficulty {
 
-    int difficultyValue;
+    private int difficultyValue;
 
     // EFFECTS: creates a difficulty modifier
     public Difficulty() {
