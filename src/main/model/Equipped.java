@@ -56,6 +56,11 @@ public class Equipped {
     // MODIFIES: this
     // EFFECTS: equips equipment without putting old equipment back into the inventory
     public void setEquipment(Equipment equipment) {
-        //stub TODO
+        if (equipment.getType() == EquipmentType.SWORD) {
+            sword = equipment;
+        }
+        if (equipment.getType() == EquipmentType.ARMOUR) {
+            armour = equipment;
+        }
     }
 }

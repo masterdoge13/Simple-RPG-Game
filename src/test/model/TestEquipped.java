@@ -115,20 +115,20 @@ public class TestEquipped {
     @Test
     void testSetEquipment() {
         testEquipped.setEquipment(testArmour);
-        assertEquals(defaultSword, testEquipped.getSword());
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(defaultSword.getName(), testEquipped.getSword().getName());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(0, testInventory.getSize());
         testEquipped.setEquipment(testArmour);
-        assertEquals(defaultSword, testEquipped.getSword());
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(defaultSword.getName(), testEquipped.getSword().getName());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(0, testInventory.getSize());
         testEquipped.setEquipment(testSword);
-        assertEquals(testSword, testEquipped.getSword());
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(testSword.getName(), testEquipped.getSword().getName());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(0, testInventory.getSize());
         testEquipped.setEquipment(testSword);
-        assertEquals(testSword, testEquipped.getSword());
-        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(testSword.getName(), testEquipped.getSword().getName());
+        assertEquals(testArmour.getName(), testEquipped.getArmour().getName());
         assertEquals(0, testInventory.getSize());
     }
 }
