@@ -39,6 +39,6 @@ public class Difficulty {
     // MODIFIES: this
     // EFFECTS: sets the difficulty number to specified number
     public void setDifficulty(int difficulty) {
-        //stub TODO
+        difficultyValue = difficulty;
     }
 }
