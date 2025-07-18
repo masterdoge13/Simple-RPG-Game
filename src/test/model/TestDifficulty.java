@@ -57,4 +57,17 @@ public class TestDifficulty {
         testDifficulty.increaseDifficulty();
         assertEquals(1.0 + (1-Math.pow(9/10, 4)), testDifficulty.getEquipmentDefenseMod(), 0.0001);
     }
+
+    @Test
+    void testSetDifficulty() {
+        assertEquals(0, testDifficulty.getDifficulty());
+        testDifficulty.setDifficulty(5);
+        assertEquals(5, testDifficulty.getDifficulty());
+        testDifficulty.setDifficulty(5);
+        assertEquals(5, testDifficulty.getDifficulty());
+        testDifficulty.setDifficulty(2);
+        assertEquals(2, testDifficulty.getDifficulty());
+        testDifficulty.setDifficulty(20);
+        assertEquals(20, testDifficulty.getDifficulty());
+    }
 }
