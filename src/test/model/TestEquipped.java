@@ -111,4 +111,24 @@ public class TestEquipped {
         testEquipped.equip(testArmour, testInventory);
         assertEquals(1 - ((1 - testArmour.getDefenseMod()) * (1 - testSword.getDefenseMod())), testEquipped.getTotalDefenseMod(), 0.001);
     }
+
+    @Test
+    void testSetEquipment() {
+        testEquipped.setEquipment(testArmour);
+        assertEquals(defaultSword, testEquipped.getSword());
+        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(0, testInventory.getSize());
+        testEquipped.setEquipment(testArmour);
+        assertEquals(defaultSword, testEquipped.getSword());
+        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(0, testInventory.getSize());
+        testEquipped.setEquipment(testSword);
+        assertEquals(testSword, testEquipped.getSword());
+        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(0, testInventory.getSize());
+        testEquipped.setEquipment(testSword);
+        assertEquals(testSword, testEquipped.getSword());
+        assertEquals(testArmour, testEquipped.getArmour());
+        assertEquals(0, testInventory.getSize());
+    }
 }
