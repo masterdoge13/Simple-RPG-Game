@@ -52,4 +52,10 @@ public class Equipped {
     public double getTotalDefenseMod() {
         return 1 - ((1 - armour.getDefenseMod()) * (1 - sword.getDefenseMod()));
     }
+
+    // MODIFIES: this
+    // EFFECTS: equips equipment without putting old equipment back into the inventory
+    public void setEquipment(Equipment equipment) {
+        //stub TODO
+    }
 }

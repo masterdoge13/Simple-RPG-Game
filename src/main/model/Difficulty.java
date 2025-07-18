@@ -34,4 +34,11 @@ public class Difficulty {
     public int getDifficulty() {
         return difficultyValue;
     }
+
+    // REQUIRES: difficulty >= 0
+    // MODIFIES: this
+    // EFFECTS: sets the difficulty number to specified number
+    public void setDifficulty(int difficulty) {
+        //stub TODO
+    }
 }

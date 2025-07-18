@@ -144,6 +144,13 @@ public class Player {
         return level;
     }
 
+    // REQUIRES: newLevel >= 0
+    // MODIFIES: this
+    // EFFECTS: sets player's level to specified number
+    public void setLevel(int newLevel) {
+        //stub TODO
+    }
+    
     // EFFECTS: returns the player's experience
     public int getExperience() {
         return experience;
@@ -157,5 +164,20 @@ public class Player {
     // EFFECTS: returns the player's gold
     public int getGold() {
         return gold;
+    }
+
+    // EFFECTS: returns the difficulty value the player is in
+    public Difficulty getDifficulty() {
+        return new Difficulty(); //stub TODO
+    }
+
+    // EFFECTS: returns the player's equipped items
+    public Equipped getEquipped() {
+        return new Equipped(); //stub TODO
+    }
+
+    // EFFECTS: returns the player's inventory
+    public Inventory getInventory() {
+        return new Inventory(); //stub TODO
     }
 }
