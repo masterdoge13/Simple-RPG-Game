@@ -19,7 +19,7 @@ public class TestEquipped {
         testSword = new Equipment("test sword", 1.5, 0.1, EquipmentType.SWORD);
         testArmour = new Equipment("test armour", 0.1, 0.2, EquipmentType.ARMOUR);
         testEquipped = new Equipped();
-        defaultSword = new Equipment("unarmed", 0, 0, EquipmentType.SWORD);
+        defaultSword = new Equipment("unarmed", 1, 0, EquipmentType.SWORD);
         defaultArmour = new Equipment("unarmoured", 0, 0, EquipmentType.ARMOUR);
         testInventory = new Inventory();
     }
@@ -28,7 +28,7 @@ public class TestEquipped {
     void testConstructor() {
         assertEquals(defaultSword.getName(), testEquipped.getSword().getName());
         assertEquals(defaultArmour.getName(), testEquipped.getArmour().getName());
-        assertEquals(0, testEquipped.getTotalAttackMod(), 0.001);
+        assertEquals(1, testEquipped.getTotalAttackMod(), 0.001);
         assertEquals(0, testEquipped.getTotalDefenseMod(), 0.001);
     }
 

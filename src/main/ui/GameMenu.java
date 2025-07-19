@@ -72,6 +72,10 @@ public class GameMenu {
             upgradeBaseStats();
         } else if (command.equals("ee")) {
             equipEquipment();
+        } else if (command.equals("l")) {
+            loadSave();
+        }else if (command.equals("s")) {
+            overwriteSave();
         } else if (command.equals("f")) {
             new Combat(player);
         } else {
@@ -87,6 +91,8 @@ public class GameMenu {
         System.out.println("\tst -> stat upgrades");
         System.out.println("\tee -> equip equipment");
         System.out.println("\tf -> fight");
+        System.out.println("\tl -> load previous data");
+        System.out.println("\ts -> save and overwrite previous data");
         System.out.println("\tq -> quit");
     }
 
@@ -191,5 +197,14 @@ public class GameMenu {
         System.out.println(player.getEquipped().equippedToString());
     }
 
+    // EFFECTS: saves player to file
+    private void overwriteSave() {
+        //stub TODO
+    }
     
+    // MODIFIES: this
+    // EFFECTS: loads player from file
+    private void loadSave() {
+        //stub TODO
+    }
 }
