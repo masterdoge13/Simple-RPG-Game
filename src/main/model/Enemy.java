@@ -1,5 +1,6 @@
 package model;
 
+// An enemy for the player to fight and gain rewards from
 public class Enemy {
 
     private String name;

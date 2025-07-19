@@ -1,5 +1,6 @@
 package model;
 
+// the difficulty and the modifiers to different aspects of the game
 public class Difficulty {
 
     private int difficultyValue;
