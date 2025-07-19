@@ -23,3 +23,5 @@ I have chosen to create a small game as I aspire to become a game developer. Hav
 - As a user, I want to be able to get stronger equipment as I beat more enemies
 - As a user, I want to be able to fight stronger enemies as I beat more enemies
 - As a user, I want to be able to use gold to buy equipment
+- As a user, I want to be able to save my player data and progress
+- As a user, I want to be able to load my player data and progress from my last save

@@ -4,6 +4,7 @@ import java.util.Scanner;
 import model.Enemy;
 import model.Player;
 
+// menu screen for combat
 public class Combat {
 
     private Player player;
