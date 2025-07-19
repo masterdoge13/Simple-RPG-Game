@@ -185,4 +185,20 @@ public class TestEquipment {
         assertEquals(0, testArmour.getUpgradeNum());
     }
 
+    @Test
+    void testSetUpgradeNumSword() {
+        testSword.setUpgradeNum(2);
+        assertEquals(2, testSword.getUpgradeNum());
+        testSword.setUpgradeNum(5);
+        assertEquals(5, testSword.getUpgradeNum());
+    }
+
+    @Test
+    void testSetUpgradeNumArmour() {
+        testArmour.setUpgradeNum(5);
+        assertEquals(5, testArmour.getUpgradeNum());
+        testArmour.setUpgradeNum(3);
+        assertEquals(3, testArmour.getUpgradeNum());
+    }
+
 }

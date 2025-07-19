@@ -17,7 +17,8 @@ public class Equipment implements Writable {
     private EquipmentType type;
     private int upgradeNum = 0;
 
-    // EFFECTS: creates an equipment with a name, attack modifier, defense modifier, and equipment type
+    // EFFECTS: creates an equipment with a name, attack modifier, defense modifier,
+    // and equipment type
     public Equipment(String name, double attackMod, double defenseMod, EquipmentType type) {
         this.name = name;
         this.attackMod = attackMod;
@@ -26,7 +27,8 @@ public class Equipment implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: increments upgrade number by one up to max upgrade number and increases attack and defense modifiers
+    // EFFECTS: increments upgrade number by one up to max upgrade number and
+    // increases attack and defense modifiers
     public void incrementUpgrade() {
         if (upgradeNum < MAX_UPGRADE) {
             this.attackMod += ATTACK_MODIFIER_INCREMENT;
@@ -41,13 +43,18 @@ public class Equipment implements Writable {
         String item = null;
         if (type == EquipmentType.SWORD) {
             item = "Sword";
-        } 
+        }
         if (type == EquipmentType.ARMOUR) {
             item = "Armour";
         }
-        description = "[" + name + "]" + " +" + upgradeNum + " " + item + " - Attack increase " + attackMod 
-            + "x - Damage reduction " + (defenseMod * 100) + "%";
+        description = "[" + name + "]" + " +" + upgradeNum + " " + item + " - Attack increase " + attackMod
+                + "x - Damage reduction " + (defenseMod * 100) + "%";
         return description;
+    }
+
+    // EFFECTS: sets the upgrade number to specified number
+    public void setUpgradeNum(int upgradeNum) {
+        this.upgradeNum = upgradeNum;
     }
 
     // EFFECTS: returns the name of the equipment

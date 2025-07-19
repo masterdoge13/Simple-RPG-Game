@@ -44,7 +44,7 @@ class TestJsonWriter extends JsonTest {
             assertEquals(0, player.getDifficulty().getDifficulty());
             assertEquals(0, player.getLevel());
             assertEquals(0, player.getExperience());
-            assertEquals(5, player.getStatPoints());
+            assertEquals(0, player.getStatPoints());
             assertEquals(5, player.getAttack());
             assertEquals(100, player.getMaxHealth());
             assertEquals(100, player.getCurrentHealth());
@@ -64,7 +64,7 @@ class TestJsonWriter extends JsonTest {
             player.increaseAttack();
             player.increaseAttack();
             player.increaseMaxHealth();
-            player.increaseExperience(110);
+            player.increaseExperience(210);
             player.increaseGold(10);
             player.getDifficulty().increaseDifficulty();
             player.getInventory().insertEquipment(testArmour);
@@ -79,14 +79,16 @@ class TestJsonWriter extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterPlayer.json");
             player = reader.read();
             assertEquals("john", player.getName());
-            assertEquals(2, player.getInventory().getSize());
+            assertEquals(4, player.getInventory().getSize());
             checkEquipment(player.getEquipped().getArmour(), "test armour", 0, 0.2, EquipmentType.ARMOUR);
             checkEquipment(player.getEquipped().getSword(), "test sword", 1.5, 0, EquipmentType.SWORD);
-            checkEquipment(player.getInventory().getEquipment(0), "unarmoured", 0, 0, EquipmentType.ARMOUR);
-            checkEquipment(player.getInventory().getEquipment(1), "unarmed", 1, 0, EquipmentType.SWORD);
+            checkEquipment(player.getInventory().getEquipment(0), "test armour", 0, 0.2, EquipmentType.ARMOUR);
+            checkEquipment(player.getInventory().getEquipment(1), "test sword", 1.5, 0, EquipmentType.SWORD);
+            checkEquipment(player.getInventory().getEquipment(2), "unarmoured", 0, 0, EquipmentType.ARMOUR);
+            checkEquipment(player.getInventory().getEquipment(3), "unarmed", 1, 0, EquipmentType.SWORD);
             assertEquals(10, player.getGold());
             assertEquals(1, player.getDifficulty().getDifficulty());
-            assertEquals(1, player.getLevel());
+            assertEquals(2, player.getLevel());
             assertEquals(10, player.getExperience());
             assertEquals(5, player.getStatPoints());
             assertEquals(17, player.getAttack());
