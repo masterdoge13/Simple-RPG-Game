@@ -68,11 +68,11 @@ public class Combat {
     // EFFECTS: displays main menu options
     private void displayMainMenu() {
         System.out.println("Enemy: " + enemy.getName());
-        System.out.println("Enemy Health: " + enemy.getHealth() + "/" + enemyStartHealth + 
-        "\nEnemy Attack: " + enemy.getAttack());
+        System.out.println("Enemy Health: " + enemy.getHealth() + "/" + enemyStartHealth
+                + "\nEnemy Attack: " + enemy.getAttack());
         System.out.println("Player: " + player.getName());
-        System.out.println("Player Health: " + player.getCurrentHealth() + "/" + player.getMaxHealth() +
-        "\nPlayer Attack: " + playerAttackEffective);
+        System.out.println("Player Health: " + player.getCurrentHealth() + "/" + player.getMaxHealth()
+                + "\nPlayer Attack: " + playerAttackEffective);
         System.out.println("\nCombat Menu:\n");
         System.out.println("\ta -> Attack");
         System.out.println("\tr -> Retreat");
@@ -90,10 +90,9 @@ public class Combat {
         System.out.println("Player Level: " + player.getLevel());
         System.out.println("Player Experience: " + player.getExperience());
         System.out.println("Player Gold: " + player.getGold());
-        
 
     }
-    
+
     // MODIFIES: this
     // EFFECTS: decreases difficulty for losing and exit combat
     private void loseCombat() {
