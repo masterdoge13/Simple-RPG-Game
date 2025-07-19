@@ -7,9 +7,17 @@ import org.junit.jupiter.api.Test;
 
 public class TestPlayer {
     private Player testPlayer;
+    private Equipment testSword;
+    private Equipment testArmour;
+    private Equipment defaultSword;
+    private Equipment defaultArmour;
     @BeforeEach
     void runBefore() {
         testPlayer = new Player("test", 5, 100);
+        testSword = new Equipment("test sword", 1.5, 0.1, EquipmentType.SWORD);
+        testArmour = new Equipment("test armour", 0.1, 0.2, EquipmentType.ARMOUR);
+        defaultSword = new Equipment("unarmed", 0, 0, EquipmentType.SWORD);
+        defaultArmour = new Equipment("unarmoured", 0, 0, EquipmentType.ARMOUR);
     }
 
     @Test
@@ -313,5 +321,64 @@ public class TestPlayer {
         assertEquals(1, testPlayer.getGold());
         testPlayer.decreaseGold(1);
         assertEquals(0, testPlayer.getGold());
+    }
+
+    @Test
+    void testSetLevel() {
+        assertEquals(0, testPlayer.getLevel());
+        testPlayer.setLevel(5);
+        assertEquals(5, testPlayer.getLevel());
+        testPlayer.setLevel(5);
+        assertEquals(5, testPlayer.getLevel());
+        testPlayer.setLevel(2);
+        assertEquals(2, testPlayer.getLevel());
+        testPlayer.setLevel(15);
+        assertEquals(15, testPlayer.getLevel());
+        testPlayer.setLevel(7);
+        assertEquals(7, testPlayer.getLevel());
+    }
+
+    @Test
+    void testGetDifficulty() {
+        assertEquals(0, testPlayer.getDifficulty().getDifficulty());
+        testPlayer.getDifficulty().increaseDifficulty();
+        assertEquals(1, testPlayer.getDifficulty().getDifficulty());
+        testPlayer.getDifficulty().increaseDifficulty();
+        assertEquals(2, testPlayer.getDifficulty().getDifficulty());
+        testPlayer.getDifficulty().setDifficulty(6);
+        assertEquals(6, testPlayer.getDifficulty().getDifficulty());
+        testPlayer.getDifficulty().increaseDifficulty();
+        assertEquals(7, testPlayer.getDifficulty().getDifficulty());
+        testPlayer.getDifficulty().setDifficulty(0);
+        assertEquals(0, testPlayer.getDifficulty().getDifficulty());
+    }
+
+    @Test
+    void testGetEquipped() {
+        assertEquals(defaultArmour.getName(), testPlayer.getEquipped().getArmour().getName());
+        assertEquals(defaultSword.getName(), testPlayer.getEquipped().getSword().getName());
+        testPlayer.getEquipped().setEquipment(testArmour);
+        assertEquals(testArmour.getName(), testPlayer.getEquipped().getArmour().getName());
+        assertEquals(defaultSword.getName(), testPlayer.getEquipped().getSword().getName());
+        testPlayer.getEquipped().setEquipment(testSword);
+        assertEquals(testArmour.getName(), testPlayer.getEquipped().getArmour().getName());
+        assertEquals(testSword.getName(), testPlayer.getEquipped().getSword().getName());
+    }
+
+    @Test
+    void testGetInventory() {
+        assertEquals(0, testPlayer.getInventory().getSize());
+        testPlayer.getInventory().insertEquipment(defaultArmour);
+        assertEquals(1, testPlayer.getInventory().getSize());
+        assertEquals(defaultArmour, testPlayer.getInventory().getEquipment(0));
+        testPlayer.getInventory().insertEquipment(defaultSword);
+        assertEquals(2, testPlayer.getInventory().getSize());
+        assertEquals(defaultSword, testPlayer.getInventory().getEquipment(1));
+        testPlayer.getInventory().insertEquipment(testArmour);
+        assertEquals(3, testPlayer.getInventory().getSize());
+        assertEquals(testArmour, testPlayer.getInventory().getEquipment(2));
+        testPlayer.getInventory().insertEquipment(testSword);
+        assertEquals(4, testPlayer.getInventory().getSize());
+        assertEquals(testSword, testPlayer.getInventory().getEquipment(3));
     }
 }
