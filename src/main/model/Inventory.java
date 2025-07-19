@@ -47,4 +47,9 @@ public class Inventory {
     public int getSize() {
         return inventoryArray.size();
     }
+
+    // EFFECTS: returns the inventory array
+    public ArrayList<Equipment> getEquipments() {
+        return new ArrayList<>(); //stub
+    }
 }
