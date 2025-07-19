@@ -72,6 +72,8 @@ public class GameMenu {
             upgradeBaseStats();
         } else if (command.equals("ee")) {
             equipEquipment();
+        } else if (command.equals("f")) {
+            new Combat(player);
         } else {
             System.out.println("Command not found\n\n");
         }
@@ -105,6 +107,7 @@ public class GameMenu {
                 Equipment newEquipment = selectEquipment(command, name);
                 player.getInventory().insertEquipment(newEquipment);
                 System.out.println("Added:\n" + newEquipment.equipmentToString());
+                player.decreaseGold(EQUIPMENT_PRICE);
             } else {
                 System.out.println("Command not found");
             }

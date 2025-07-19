@@ -8,7 +8,7 @@ public class Equipped {
 
     // EFFECTS: creates an equipped object with placeholder Equipment objects
     public Equipped() {
-        sword = new Equipment("unarmed", 0, 0, EquipmentType.SWORD);
+        sword = new Equipment("unarmed", 1, 0, EquipmentType.SWORD);
         armour = new Equipment("unarmoured", 0, 0, EquipmentType.ARMOUR);
     }
 
