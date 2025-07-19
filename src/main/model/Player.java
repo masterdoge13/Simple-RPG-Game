@@ -16,6 +16,9 @@ public class Player {
     private int experience;
     private int statPoints;
     private int gold;
+    private Difficulty difficulty;
+    private Equipped equipped;
+    private Inventory inventory;
 
     // REQUIRES: attack > 0 && maxHealth > 0
     // EFFECTS: creates a player with the given name, attack, and max health and sets current health to max health
@@ -28,6 +31,9 @@ public class Player {
         experience = 0;
         statPoints = 0;
         gold = 0;
+        difficulty = new Difficulty();
+        equipped = new Equipped();
+        inventory = new Inventory();
 
     }
 
@@ -148,7 +154,7 @@ public class Player {
     // MODIFIES: this
     // EFFECTS: sets player's level to specified number
     public void setLevel(int newLevel) {
-        //stub TODO
+        level = newLevel;
     }
     
     // EFFECTS: returns the player's experience
@@ -168,16 +174,16 @@ public class Player {
 
     // EFFECTS: returns the difficulty value the player is in
     public Difficulty getDifficulty() {
-        return new Difficulty(); //stub TODO
+        return difficulty;
     }
 
     // EFFECTS: returns the player's equipped items
     public Equipped getEquipped() {
-        return new Equipped(); //stub TODO
+        return equipped;
     }
 
     // EFFECTS: returns the player's inventory
     public Inventory getInventory() {
-        return new Inventory(); //stub TODO
+        return inventory;
     }
 }
