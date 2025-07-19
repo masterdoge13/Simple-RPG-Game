@@ -81,7 +81,7 @@ public class GameMenu {
             equipEquipment();
         } else if (command.equals("l")) {
             loadSave();
-        }else if (command.equals("s")) {
+        } else if (command.equals("s")) {
             overwriteSave();
         } else if (command.equals("f")) {
             new Combat(player);
