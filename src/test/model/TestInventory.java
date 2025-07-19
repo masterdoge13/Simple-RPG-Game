@@ -109,4 +109,26 @@ public class TestInventory {
         testInventory.insertEquipment(testArmour);
         assertEquals(2, testInventory.getSize());
     }
+
+    @Test
+    void testGetEquipments() {
+        testInventory.insertEquipment(testArmour);
+        assertEquals(1, testInventory.getEquipments().size());
+        assertEquals(testArmour, testInventory.getEquipments().get(0));
+    }
+
+    @Test
+    void testGetEquipmentsBigger() {
+        testInventory.insertEquipment(testArmour);
+        testInventory.insertEquipment(testArmour);
+        testInventory.insertEquipment(testSword);
+        testInventory.insertEquipment(testArmour);
+        assertEquals(4, testInventory.getEquipments().size());
+        assertEquals(testSword, testInventory.getEquipments().get(2));
+    }
+
+    @Test
+    void testGetEquipmentsEmpty() {
+        assertEquals(0, testInventory.getEquipments().size());
+    }
 }
