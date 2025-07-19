@@ -4,6 +4,8 @@ import java.util.Scanner;
 import model.Equipment;
 import model.EquipmentType;
 import model.Player;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 // Menu screen for managing player stats and equipment
 public class GameMenu {
@@ -16,7 +18,10 @@ public class GameMenu {
     private static final double SWORD_BASE_UPPER_RANGE = 3.0;
     private static final double ARMOUR_BASE_LOWER_RANGE = 0.1;
     private static final double ARMOUR_BASE_UPPER_RANGE = 0.45;
-
+    private static final String SAVE_FILE = "./data/playerData.json";
+    
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
     private Scanner input;
     private Player player;
 
@@ -60,6 +65,8 @@ public class GameMenu {
         name = input.next();
         player = new Player(name, BASE_ATTACK, BASE_HEALTH);
         player.increaseStatPoints(STARTING_STAT_POINTS);
+        jsonReader = new JsonReader(SAVE_FILE);
+        jsonWriter = new JsonWriter(SAVE_FILE);
     }
 
     // EFFECTS: processes user command in main menu
@@ -199,12 +206,24 @@ public class GameMenu {
 
     // EFFECTS: saves player to file
     private void overwriteSave() {
-        //stub TODO
+        try {
+            jsonWriter.open();
+            jsonWriter.write(player);
+            jsonWriter.close();
+            System.out.println("Saved player " + player.getName() + " to " + SAVE_FILE);
+        } catch (Exception e) {
+            System.out.println("Failed to save");
+        }
     }
     
     // MODIFIES: this
     // EFFECTS: loads player from file
     private void loadSave() {
-        //stub TODO
+        try {
+            player = jsonReader.read();
+            System.out.println("Loaded player " + player.getName() + " from " + SAVE_FILE);
+        } catch (Exception e) {
+            System.out.println("Failed to load");
+        }
     }
 }
