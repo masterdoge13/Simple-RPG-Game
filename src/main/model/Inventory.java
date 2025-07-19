@@ -50,6 +50,6 @@ public class Inventory {
 
     // EFFECTS: returns the inventory array
     public ArrayList<Equipment> getEquipments() {
-        return new ArrayList<>(); //stub
+        return inventoryArray; //stub
     }
 }
