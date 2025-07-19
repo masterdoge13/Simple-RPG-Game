@@ -3,8 +3,6 @@ package ui;
 import java.util.Scanner;
 import model.Equipment;
 import model.EquipmentType;
-import model.Equipped;
-import model.Inventory;
 import model.Player;
 
 // Menu screen for managing player stats and equipment
@@ -13,10 +11,14 @@ public class GameMenu {
     private static final int BASE_ATTACK = 5;
     private static final int BASE_HEALTH = 100;
     private static final int STARTING_STAT_POINTS = 5;
-    private Player player;
-    private Inventory inventory;
-    private Equipped equipped;
+    private static final int EQUIPMENT_PRICE = 20;
+    private static final double SWORD_BASE_LOWER_RANGE = 1.0;
+    private static final double SWORD_BASE_UPPER_RANGE = 3.0;
+    private static final double ARMOUR_BASE_LOWER_RANGE = 0.1;
+    private static final double ARMOUR_BASE_UPPER_RANGE = 0.45;
+
     private Scanner input;
+    private Player player;
 
     // EFFECTS: runs the game menu
     public GameMenu() {
@@ -50,8 +52,6 @@ public class GameMenu {
     // MODIFIES: this
     // EFFECTS: initializes game data, takes input for player name
     private void init() {
-        inventory = new Inventory();
-        equipped = new Equipped();
         String name;
         // taken from init() method in TellerApp class in TellerApp
         input = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class GameMenu {
         if (command.equals("ne")) {
             addNewEquipment();
         } else if (command.equals("vi")) {
-            System.out.println(inventory.inventoryToString());
+            System.out.println(player.getInventory().inventoryToString());
         } else if (command.equals("st")) {
             upgradeBaseStats();
         } else if (command.equals("ee")) {
@@ -80,29 +80,34 @@ public class GameMenu {
     // EFFECTS: displays main menu options
     private void displayMainMenu() {
         System.out.println("\nMain Menu:\n");
-        System.out.println("\tne -> add new equipment");
+        System.out.println("\tne -> buy new equipment");
         System.out.println("\tvi -> view inventory");
         System.out.println("\tst -> stat upgrades");
         System.out.println("\tee -> equip equipment");
+        System.out.println("\tf -> fight");
         System.out.println("\tq -> quit");
     }
 
     // MODIFIES: this
-    // EFFECTS: adds new equipment to the inventory
+    // EFFECTS: adds new equipment to the inventory if player has enough gold
     private void addNewEquipment() {
-        String command = null;
-        String name = null;
-        System.out.println("\nName your equipment:\n");
-        name = input.next();
-        displayNewEquipmentMenu();
-        command = input.next();
-        command = command.toLowerCase();
-        if (command.equals("s") || command.equals("a")) {
-            Equipment newEquipment = selectEquipment(command, name);
-            inventory.insertEquipment(newEquipment);
-            System.out.println("Added:\n" + newEquipment.equipmentToString());
+        if (player.getGold() < EQUIPMENT_PRICE) {
+            System.out.println("You are broke, fight some more before coming back");
         } else {
-            System.out.println("Command not found");
+            String command = null;
+            String name = null;
+            System.out.println("\nName your equipment:\n");
+            name = input.next();
+            displayNewEquipmentMenu();
+            command = input.next();
+            command = command.toLowerCase();
+            if (command.equals("s") || command.equals("a")) {
+                Equipment newEquipment = selectEquipment(command, name);
+                player.getInventory().insertEquipment(newEquipment);
+                System.out.println("Added:\n" + newEquipment.equipmentToString());
+            } else {
+                System.out.println("Command not found");
+            }
         }
 
     }
@@ -110,17 +115,23 @@ public class GameMenu {
     // EFFECTS: makes an equipment to add
     private Equipment selectEquipment(String command, String name) {
         Equipment newEquipment = null;
+        double baseModifier = 0;
         if (command.equals("s")) {
-            newEquipment = new Equipment(name, 1.5, 0.0, EquipmentType.SWORD);
+            baseModifier = Math.random() * (SWORD_BASE_UPPER_RANGE - SWORD_BASE_LOWER_RANGE) + SWORD_BASE_LOWER_RANGE;
+            newEquipment = new Equipment(name, baseModifier * player.getDifficulty().getEquipmentAttackMod(), 0.0,
+                    EquipmentType.SWORD);
         } else if (command.equals("a")) {
-            newEquipment = new Equipment(name, 0.0, 0.2, EquipmentType.ARMOUR);
+            baseModifier = Math.random() * (ARMOUR_BASE_UPPER_RANGE - ARMOUR_BASE_LOWER_RANGE)
+                    + ARMOUR_BASE_LOWER_RANGE;
+            newEquipment = new Equipment(name, 0.0, baseModifier * player.getDifficulty().getEquipmentDefenseMod(),
+                    EquipmentType.ARMOUR);
         }
         return newEquipment; // stub
     }
 
     // EFFECTS: displays menu options for adding new equipment
     private void displayNewEquipmentMenu() {
-        System.out.println("\nMake Equipment:\n");
+        System.out.println("\nBuy Equipment:\n");
         System.out.println("\ts -> Sword");
         System.out.println("\ta -> Armour");
     }
@@ -130,6 +141,7 @@ public class GameMenu {
     private void upgradeBaseStats() {
         String command = null;
         if (player.getStatPoints() > 0) {
+            System.out.println("Free stat points: " + player.getStatPoints());
             displayStatUpgradeMenu();
             command = input.next();
             command = command.toLowerCase();
@@ -155,23 +167,26 @@ public class GameMenu {
     }
 
     // MODIFIES: this
-    // EFFECTS: equips chosen equipment from inventory and removes it from inventory
+    // EFFECTS: equips chosen equipment from player.getInventory() and removes it
+    // from inventory
     private void equipEquipment() {
         String command = null;
         int equipIndex = 0;
-        System.out.println(inventory.inventoryToString());
+        System.out.println(player.getInventory().inventoryToString());
         System.out.println("\nType index of desired equipment");
         command = input.next();
         equipIndex = Integer.parseInt(command);
         if (equipIndex < 0) {
             System.out.println("Please put a non-negative integer");
-        } else if (inventory.getSize() <= equipIndex) {
+        } else if (player.getInventory().getSize() <= equipIndex) {
             System.out.println("Please choose an index in your inventory");
         } else {
-            equipped.equip(inventory.getEquipment(equipIndex), inventory);
-            inventory.removeEquipment(equipIndex);
-            
+            player.getEquipped().equip(player.getInventory().getEquipment(equipIndex), player.getInventory());
+            player.getInventory().removeEquipment(equipIndex);
+
         }
-        System.out.println(equipped.equippedToString());
+        System.out.println(player.getEquipped().equippedToString());
     }
+
+    
 }
