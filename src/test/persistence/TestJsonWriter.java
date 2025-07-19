@@ -1,16 +1,12 @@
 package persistence;
 
 import model.Player;
-import model.Inventory;
-import model.Equipped;
 import model.Equipment;
 import model.EquipmentType;
-import model.Difficulty;
 
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -75,7 +71,7 @@ class TestJsonWriter extends JsonTest {
             player.getInventory().insertEquipment(testSword);
             player.getEquipped().equip(testArmour, player.getInventory());
             player.getEquipped().equip(testSword, player.getInventory());
-            JsonWriter writer = new JsonWriter("\"./data/testWriterPlayer.json\"");
+            JsonWriter writer = new JsonWriter("./data/testWriterPlayer.json");
             writer.open();
             writer.write(player);
             writer.close();

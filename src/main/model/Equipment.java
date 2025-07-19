@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // All types of equipment with stat modifiers and upgradability
-public class Equipment {
+public class Equipment implements Writable {
 
     private static final double ATTACK_MODIFIER_INCREMENT = 0.1;
     private static final double DEFENSE_MODIFIER_INCREMENT = 0.01;
@@ -69,5 +73,17 @@ public class Equipment {
     // EFFECTS: returns the upgrade number
     public int getUpgradeNum() {
         return upgradeNum;
+    }
+
+    // template taken from JsonSerializationDemo
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("attackMod", attackMod);
+        json.put("defenseMod", defenseMod);
+        json.put("type", type);
+        json.put("upgradeNum", upgradeNum);
+        return json;
     }
 }

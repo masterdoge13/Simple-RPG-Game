@@ -1,0 +1,56 @@
+{
+    "gold": 10,
+    "difficulty": 1,
+    "statPoints": 0,
+    "level": 1,
+    "equipped": {
+        "equippedSword": {
+            "defenseMod": 0,
+            "name": "test sword",
+            "type": "SWORD",
+            "upgradeNum": 0,
+            "attackMod": 1.5
+        },
+        "equippedArmour": {
+            "defenseMod": 0.2,
+            "name": "test armour",
+            "type": "ARMOUR",
+            "upgradeNum": 0,
+            "attackMod": 0
+        }
+    },
+    "attack": 17,
+    "name": "john",
+    "maxHealth": 110,
+    "experience": 10,
+    "inventory": {"inventoryArray": [
+        {
+            "defenseMod": 0.2,
+            "name": "test armour",
+            "type": "ARMOUR",
+            "upgradeNum": 0,
+            "attackMod": 0
+        },
+        {
+            "defenseMod": 0,
+            "name": "test sword",
+            "type": "SWORD",
+            "upgradeNum": 0,
+            "attackMod": 1.5
+        },
+        {
+            "defenseMod": 0,
+            "name": "unarmoured",
+            "type": "ARMOUR",
+            "upgradeNum": 0,
+            "attackMod": 0
+        },
+        {
+            "defenseMod": 0,
+            "name": "unarmed",
+            "type": "SWORD",
+            "upgradeNum": 0,
+            "attackMod": 1
+        }
+    ]}
+}

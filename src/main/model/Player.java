@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Contains player information and stats
-public class Player {
+public class Player implements Writable {
 
     private static final int HEALTH_INCREMENT = 10;
     private static final int ATTACK_INCREMENT = 3;
@@ -21,7 +25,8 @@ public class Player {
     private Inventory inventory;
 
     // REQUIRES: attack > 0 && maxHealth > 0
-    // EFFECTS: creates a player with the given name, attack, and max health and sets current health to max health
+    // EFFECTS: creates a player with the given name, attack, and max health and
+    // sets current health to max health
     public Player(String name, int attack, int maxHealth) {
         this.name = name;
         this.attack = attack;
@@ -85,7 +90,8 @@ public class Player {
     }
 
     // MODIFIES: this
-    // EFFECTS: increments player's level by 1 and increases stat points by a fixed increment
+    // EFFECTS: increments player's level by 1 and increases stat points by a fixed
+    // increment
     public void increaseLevel() {
         level++;
         increaseStatPoints(STAT_INCREMENT);
@@ -93,7 +99,8 @@ public class Player {
 
     // REQUIRES: amount > 0
     // MODIFIES: this
-    // EFFECTS: increases player's experience by amount specified and levels up if possible
+    // EFFECTS: increases player's experience by amount specified and levels up if
+    // possible
     public void increaseExperience(int amount) {
         experience += amount;
         if (experience >= EXPERIENCE_THRESHOLD) {
@@ -156,7 +163,7 @@ public class Player {
     public void setLevel(int newLevel) {
         level = newLevel;
     }
-    
+
     // EFFECTS: returns the player's experience
     public int getExperience() {
         return experience;
@@ -186,4 +193,23 @@ public class Player {
     public Inventory getInventory() {
         return inventory;
     }
+
+    // template taken from JsonSerializationDemo
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("attack", attack);
+        json.put("maxHealth", maxHealth);
+        json.put("level", level);
+        json.put("experience", experience);
+        json.put("statPoints", statPoints);
+        json.put("gold", gold);
+        json.put("difficulty", difficulty.getDifficulty());
+        json.put("equipped", equipped.toJson());
+        json.put("inventory", inventory.toJson());
+        return json;
+    }
+
+    
 }

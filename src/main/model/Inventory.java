@@ -2,8 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // A class that stores unequipped equipment
-public class Inventory {
+public class Inventory implements Writable {
 
     private ArrayList<Equipment> inventoryArray;
     // EFFECTS: creates an empty inventory
@@ -52,4 +57,24 @@ public class Inventory {
     public ArrayList<Equipment> getEquipments() {
         return inventoryArray; //stub
     }
+
+    // template taken from JsonSerializationDemo
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("inventoryArray", equipmentsToJson());
+        return json;
+    }
+
+    // template taken from JsonSerializationDemo
+    // EFFECTS: returns equipment in inventory as a JSON array
+    private JSONArray equipmentsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Equipment e : inventoryArray) {
+            jsonArray.put(e.toJson());
+        }
+
+        return jsonArray;
+    }
+
 }

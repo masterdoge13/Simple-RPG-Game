@@ -1,0 +1,27 @@
+{
+    "gold": 0,
+    "difficulty": 0,
+    "statPoints": 0,
+    "level": 0,
+    "equipped": {
+        "equippedSword": {
+            "defenseMod": 0,
+            "name": "unarmed",
+            "type": "SWORD",
+            "upgradeNum": 0,
+            "attackMod": 1
+        },
+        "equippedArmour": {
+            "defenseMod": 0,
+            "name": "unarmoured",
+            "type": "ARMOUR",
+            "upgradeNum": 0,
+            "attackMod": 0
+        }
+    },
+    "attack": 5,
+    "name": "test",
+    "maxHealth": 100,
+    "experience": 0,
+    "inventory": {"inventoryArray": []}
+}

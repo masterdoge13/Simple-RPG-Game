@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Information and stats from equipped equipment
-public class Equipped {
+public class Equipped implements Writable {
 
     private Equipment sword;
     private Equipment armour;
@@ -62,5 +66,14 @@ public class Equipped {
         if (equipment.getType() == EquipmentType.ARMOUR) {
             armour = equipment;
         }
+    }
+
+    // template taken from JsonSerializationDemo
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("equippedSword", sword.toJson());
+        json.put("equippedArmour", armour.toJson());
+        return json;
     }
 }
