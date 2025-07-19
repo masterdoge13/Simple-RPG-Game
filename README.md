@@ -19,3 +19,7 @@ I have chosen to create a small game as I aspire to become a game developer. Hav
 - As a user, I want to be able to customize my starting stats at the beginning of the game
 - As a user, I want to be able to attack an enemy and make it take damage
 - As a user, I want to be able to select equipment from my inventory and equip it to my character
+- As a user, I want to be able to get gold and experience from beating enemies
+- As a user, I want to be able to get stronger equipment as I beat more enemies
+- As a user, I want to be able to fight stronger enemies as I beat more enemies
+- As a user, I want to be able to use gold to buy equipment
