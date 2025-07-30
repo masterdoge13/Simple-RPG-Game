@@ -46,7 +46,7 @@ public class PlayerNameGUI extends JFrame {
             player = new Player(playerName, BASE_ATTACK, BASE_HEALTH);
             player.increaseStatPoints(STARTING_STAT_POINTS);
             dispose();
-            System.out.println(player.getEquipped().equippedToString()); // placeholder test print statement
+            new MainMenuGUI(player);
 
         }
     }
