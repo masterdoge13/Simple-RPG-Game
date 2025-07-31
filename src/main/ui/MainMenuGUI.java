@@ -18,7 +18,7 @@ public class MainMenuGUI extends JFrame {
     private JButton combatButton;
     private JButton buyEquipmentButton;
     private JButton viewInventoryButton;
-    private JButton EquipEquipmentButton;
+    private JButton equipEquipmentButton;
     private JButton saveButton;
     private JButton loadButton;
 
@@ -50,6 +50,48 @@ public class MainMenuGUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: creates buttons for menu
     private void createButtons() {
+        createCombatButton();
+        createBuyEquipmentButton();
+        createViewInventoryButton();
+        createEquipEquipmentButton();
+        createSaveButton();
+        createLoadButton();
+    }
+
+
+    // MODIFIES: this
+    // EFFECTS: creates button for combat
+    private void createCombatButton() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates button for buying equipment
+    private void createBuyEquipmentButton() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates button for viewing the inventory
+    private void createViewInventoryButton() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates button for equipping equipment
+    private void createEquipEquipmentButton() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates button for saving
+    private void createSaveButton() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates button for loading
+    private void createLoadButton() {
         //stub
     }
 }
