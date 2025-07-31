@@ -102,24 +102,28 @@ public class MainMenuGUI extends JFrame {
     // EFFECTS: creates button for viewing the inventory
     private void createViewInventoryButton() {
         viewInventoryButton = new JButton("Inventory", viewInventoryButtonIcon);
+        viewInventoryButton.addActionListener(new viewInventory());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for equipping equipment
     private void createEquipEquipmentButton() {
         equipEquipmentButton = new JButton("Equip", equipEquipmentButtonIcon);
+        equipEquipmentButton.addActionListener(new equipEquipment());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for saving
     private void createSaveButton() {
         saveButton = new JButton("Save", saveButtonIcon);
+        saveButton.addActionListener(new overwriteSaveData());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for loading
     private void createLoadButton() {
         loadButton = new JButton("Load", loadButtonIcon);
+        loadButton.addActionListener(new loadSaveData());
     }
 
     // opens up the buy equipment menu
@@ -136,4 +140,66 @@ public class MainMenuGUI extends JFrame {
 
         }
     }
+    
+    // opens up the view inventory menu
+    private class viewInventory extends AbstractAction {
+
+        protected viewInventory() {
+            super();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            //stub
+            
+
+        }
+    }
+
+    // opens up the equip equipment menu
+    private class equipEquipment extends AbstractAction {
+
+        protected equipEquipment() {
+            super();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            //stub
+            
+
+        }
+    }
+
+    // saves player data and returns a pop-up notification
+    private class overwriteSaveData extends AbstractAction {
+
+        protected overwriteSaveData() {
+            super();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            //stub
+            
+
+        }
+    }
+
+    // saves player data and returns a pop-up notification
+    private class loadSaveData extends AbstractAction {
+
+        protected loadSaveData() {
+            super();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            //stub
+            
+
+        }
+    }
+
+    
 }
