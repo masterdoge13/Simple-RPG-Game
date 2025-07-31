@@ -14,6 +14,7 @@ import javax.swing.WindowConstants;
 
 
 import model.Player;
+import persistence.*;
 
 // GUI for the main menu of the game
 public class MainMenuGUI extends JFrame {
@@ -22,8 +23,11 @@ public class MainMenuGUI extends JFrame {
     private static final int HEIGHT = 600;
     // taken from TrafficLightGUI in C3-LectureLabSolution
     private static final String IMAGES_PATH = System.getProperty("user.dir") + "/images/";
+    private static final String SAVE_FILE = "./data/playerData.json";
 
     private Player player;
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
     private JButton combatButton;
     private JButton buyEquipmentButton;
     private JButton viewInventoryButton;
@@ -40,6 +44,8 @@ public class MainMenuGUI extends JFrame {
     // EFFECTS: creates a main menu GUI with a player
     public MainMenuGUI(Player player) {
         this.player = player;
+        jsonReader = new JsonReader(SAVE_FILE);
+        jsonWriter = new JsonWriter(SAVE_FILE);
         loadIcons();
         addButtonPanel();
         setSize(WIDTH, HEIGHT);
@@ -180,7 +186,14 @@ public class MainMenuGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            try {
+                jsonWriter.open();
+                jsonWriter.write(player);
+                jsonWriter.close();
+                JOptionPane.showMessageDialog(null, "Saved player " + player.getName() + " to " + SAVE_FILE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to load");
+            }
             
 
         }
@@ -195,7 +208,12 @@ public class MainMenuGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            try {
+                player = jsonReader.read();
+                JOptionPane.showMessageDialog(null, "Loaded player " + player.getName() + " from " + SAVE_FILE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to load");
+            }
             
 
         }
