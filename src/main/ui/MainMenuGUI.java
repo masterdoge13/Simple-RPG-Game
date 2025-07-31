@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,8 @@ public class MainMenuGUI extends JFrame {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+    private static final String IMAGES_PATH = "../../images";
+
     private Player player;
     private JButton combatButton;
     private JButton buyEquipmentButton;
@@ -21,10 +24,17 @@ public class MainMenuGUI extends JFrame {
     private JButton equipEquipmentButton;
     private JButton saveButton;
     private JButton loadButton;
+    private ImageIcon combatButtonIcon;
+    private ImageIcon buyEquipmentButtonIcon;
+    private ImageIcon viewInventoryButtonIcon;
+    private ImageIcon equipEquipmentButtonIcon;
+    private ImageIcon saveButtonIcon;
+    private ImageIcon loadButtonIcon;
 
     // EFFECTS: creates a main menu GUI with a player
     public MainMenuGUI(Player player) {
         this.player = player;
+        loadIcons();
         addButtonPanel();
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -37,13 +47,13 @@ public class MainMenuGUI extends JFrame {
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
         createButtons();
-		buttonPanel.setLayout(new GridLayout(3,2));
-		buttonPanel.add(new JButton());
-		buttonPanel.add(new JButton());
-		buttonPanel.add(new JButton());
-		buttonPanel.add(new JButton());
-		buttonPanel.add(new JButton());
-		buttonPanel.add(new JButton());
+        buttonPanel.setLayout(new GridLayout(3, 2));
+        buttonPanel.add(new JButton());
+        buttonPanel.add(new JButton());
+        buttonPanel.add(new JButton());
+        buttonPanel.add(new JButton());
+        buttonPanel.add(new JButton());
+        buttonPanel.add(new JButton());
         add(buttonPanel);
     }
 
@@ -58,40 +68,45 @@ public class MainMenuGUI extends JFrame {
         createLoadButton();
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads icons for buttons
+    private void loadIcons() {
+        //stub
+    }
 
     // MODIFIES: this
     // EFFECTS: creates button for combat
     private void createCombatButton() {
-        //stub
+        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for buying equipment
     private void createBuyEquipmentButton() {
-        //stub
+        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for viewing the inventory
     private void createViewInventoryButton() {
-        //stub
+        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for equipping equipment
     private void createEquipEquipmentButton() {
-        //stub
+        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for saving
     private void createSaveButton() {
-        //stub
+        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for loading
     private void createLoadButton() {
-        //stub
+        // stub
     }
 }
