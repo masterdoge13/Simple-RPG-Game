@@ -1,12 +1,17 @@
 package ui;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+
 
 import model.Player;
 
@@ -15,7 +20,8 @@ public class MainMenuGUI extends JFrame {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-    private static final String IMAGES_PATH = "../../images";
+    // taken from TrafficLightGUI in C3-LectureLabSolution
+    private static final String IMAGES_PATH = System.getProperty("user.dir") + "/images/";
 
     private Player player;
     private JButton combatButton;
@@ -48,12 +54,12 @@ public class MainMenuGUI extends JFrame {
         JPanel buttonPanel = new JPanel();
         createButtons();
         buttonPanel.setLayout(new GridLayout(3, 2));
-        buttonPanel.add(new JButton());
-        buttonPanel.add(new JButton());
-        buttonPanel.add(new JButton());
-        buttonPanel.add(new JButton());
-        buttonPanel.add(new JButton());
-        buttonPanel.add(new JButton());
+        buttonPanel.add(combatButton);
+        buttonPanel.add(buyEquipmentButton);
+        buttonPanel.add(viewInventoryButton);
+        buttonPanel.add(equipEquipmentButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(loadButton);
         add(buttonPanel);
     }
 
@@ -71,42 +77,63 @@ public class MainMenuGUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: loads icons for buttons
     private void loadIcons() {
-        //stub
+        combatButtonIcon = new ImageIcon(IMAGES_PATH + "combatbuttonicon.png");
+        buyEquipmentButtonIcon = new ImageIcon(IMAGES_PATH + "buyequipmentbuttonicon.png");
+        viewInventoryButtonIcon = new ImageIcon(IMAGES_PATH + "viewinventorybuttonicon.png");
+        equipEquipmentButtonIcon = new ImageIcon(IMAGES_PATH + "equipequipmentbuttonicon.png");
+        saveButtonIcon = new ImageIcon(IMAGES_PATH + "savebuttonicon.png");
+        loadButtonIcon = new ImageIcon(IMAGES_PATH + "loadbuttonicon.png");
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for combat
     private void createCombatButton() {
-        // stub
+        combatButton = new JButton("Fight", combatButtonIcon);
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for buying equipment
     private void createBuyEquipmentButton() {
-        // stub
+        buyEquipmentButton = new JButton("Buy Equipment", buyEquipmentButtonIcon);
+        buyEquipmentButton.addActionListener(new buyEquipment());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for viewing the inventory
     private void createViewInventoryButton() {
-        // stub
+        viewInventoryButton = new JButton("Inventory", viewInventoryButtonIcon);
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for equipping equipment
     private void createEquipEquipmentButton() {
-        // stub
+        equipEquipmentButton = new JButton("Equip", equipEquipmentButtonIcon);
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for saving
     private void createSaveButton() {
-        // stub
+        saveButton = new JButton("Save", saveButtonIcon);
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for loading
     private void createLoadButton() {
-        // stub
+        loadButton = new JButton("Load", loadButtonIcon);
+    }
+
+    // opens up the buy equipment menu
+    private class buyEquipment extends AbstractAction {
+
+        protected buyEquipment() {
+            super();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            //stub
+            
+
+        }
     }
 }
