@@ -105,7 +105,7 @@ public class MainMenuGUI extends JFrame {
     }
 
     // MODIFIES: this
-    // EFFECTS: creates button for viewing the inventory
+    // EFFECTS: creates button for viewing the inventory and equipping equipment
     private void createViewInventoryButton() {
         viewInventoryButton = new JButton("Inventory", viewInventoryButtonIcon);
         viewInventoryButton.addActionListener(new viewInventory());
@@ -169,6 +169,7 @@ public class MainMenuGUI extends JFrame {
             super();
         }
 
+
         @Override
         public void actionPerformed(ActionEvent evt) {
             //stub
@@ -184,6 +185,7 @@ public class MainMenuGUI extends JFrame {
             super();
         }
 
+        // EFFECTS: saves player to file
         @Override
         public void actionPerformed(ActionEvent evt) {
             try {
@@ -199,13 +201,15 @@ public class MainMenuGUI extends JFrame {
         }
     }
 
-    // saves player data and returns a pop-up notification
+    // loads player data and returns a pop-up notification
     private class loadSaveData extends AbstractAction {
 
         protected loadSaveData() {
             super();
         }
 
+        // MODIFIES: this
+        // EFFECTS: reads player data and saves it to player
         @Override
         public void actionPerformed(ActionEvent evt) {
             try {
