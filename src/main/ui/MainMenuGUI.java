@@ -156,7 +156,8 @@ public class MainMenuGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            dispose();
+            new ViewInventoryGUI(player, 0);
             
 
         }

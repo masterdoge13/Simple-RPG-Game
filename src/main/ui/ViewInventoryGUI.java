@@ -3,15 +3,14 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.WindowConstants;
 
 import model.Inventory;
 import model.Player;
@@ -22,6 +21,7 @@ public class ViewInventoryGUI extends JFrame {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+    private static final int ITEMS_PER_PAGE = 9;
 
     private Player player;
     private Inventory inventory;
@@ -34,6 +34,8 @@ public class ViewInventoryGUI extends JFrame {
         index = ind;
         addButtonPanel();
         setSize(WIDTH, HEIGHT);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
     // MODIFIES: this
@@ -41,20 +43,21 @@ public class ViewInventoryGUI extends JFrame {
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(new JTextArea(player.getEquipped().equippedToString()));
-        buttonPanel.setLayout(new GridLayout(11, 1));
+        buttonPanel.setLayout(new GridLayout(ITEMS_PER_PAGE+2, 1));
         createButtons(buttonPanel);
         JPanel navigationButtons = new JPanel(new GridLayout(1, 3));
         navigationButtons.add(new JButton(new PreviousPage()));
         navigationButtons.add(new JButton(new BackToMenu()));
         navigationButtons.add(new JButton(new NextPage()));
-        
+        buttonPanel.add(navigationButtons);
+        add(buttonPanel);
     }
 
     // MODIFIES: this
     // EFFECTS: creates buttons for each item in the inventory screen
     private void createButtons(JPanel buttonPanel) {
         int x = 0;
-        while (x < 9) {
+        while (x < ITEMS_PER_PAGE) {
             if (index <= inventory.getSize() - 1) {
                 JPanel subPanel = new JPanel(new BorderLayout());
                 if (inventory.getEquipment(index).getType() == EquipmentType.ARMOUR) {
@@ -67,6 +70,7 @@ public class ViewInventoryGUI extends JFrame {
                 subItemAction.add(new JButton(new RemoveEquipment(index)));
                 subItemAction.add(new JButton(new EquipEquipment(index)));
                 subPanel.add(subItemAction, BorderLayout.LINE_END);
+                buttonPanel.add(subPanel);
             } else {
                 buttonPanel.add(new JButton());
             }
@@ -79,15 +83,22 @@ public class ViewInventoryGUI extends JFrame {
     // remove selected item
     private class RemoveEquipment extends AbstractAction {
 
+        private int chosenIndex;
+
         protected RemoveEquipment(int ind) {
-            //stub
+            super("Remove");
+            this.chosenIndex = ind;
         }
 
         // MODIFIES: this
-        // EFFECTS: removes selected equipment at index
+        // EFFECTS: removes selected equipment at index and refreshes the page
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            inventory.removeEquipment(chosenIndex);
+            index -= ITEMS_PER_PAGE;
+            dispose();
+            new ViewInventoryGUI(player, index);
+
 
         }
     }
@@ -95,15 +106,22 @@ public class ViewInventoryGUI extends JFrame {
     // equip selected item
     private class EquipEquipment extends AbstractAction {
 
+        private int chosenIndex;
+
         protected EquipEquipment(int ind) {
-            //stub
+            super("Equip");
+            chosenIndex = ind;
         }
 
         // MODIFIES: this
-        // EFFECTS: equip selected equipment at index
+        // EFFECTS: equip selected equipment at index and refreshes the page
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            player.getEquipped().equip(inventory.getEquipment(chosenIndex), inventory);
+            player.getInventory().removeEquipment(chosenIndex);
+            index -= ITEMS_PER_PAGE;
+            dispose();
+            new ViewInventoryGUI(player, index);
 
         }
     }
@@ -112,14 +130,16 @@ public class ViewInventoryGUI extends JFrame {
     private class PreviousPage extends AbstractAction {
 
         protected PreviousPage() {
-            //stub
+            super("Prev");
         }
 
         // MODIFIES: this
         // EFFECTS: opens the inventory GUI on the previous page of items
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            index -= ITEMS_PER_PAGE*2;
+            dispose();
+            new ViewInventoryGUI(player, index);
 
         }
     }
@@ -128,14 +148,15 @@ public class ViewInventoryGUI extends JFrame {
     private class NextPage extends AbstractAction {
 
         protected NextPage() {
-            //stub
+            super("Next");
         }
 
         // MODIFIES: this
         // EFFECTS: opens the inventory GUI on the next page of items
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            dispose();
+            new ViewInventoryGUI(player, index);
 
         }
     }
@@ -144,14 +165,15 @@ public class ViewInventoryGUI extends JFrame {
     private class BackToMenu extends AbstractAction {
 
         protected BackToMenu() {
-            //stub
+            super("Exit");
         }
 
         // MODIFIES: this
         // EFFECTS: opens the main menu
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            dispose();
+            new MainMenuGUI(player);
 
         }
     }
