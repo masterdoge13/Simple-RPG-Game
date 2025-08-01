@@ -223,10 +223,6 @@ public class MainMenuGUI extends JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to load");
             }
-            
-
         }
     }
-
-    
 }
