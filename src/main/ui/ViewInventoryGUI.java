@@ -96,6 +96,9 @@ public class ViewInventoryGUI extends JFrame {
         public void actionPerformed(ActionEvent evt) {
             inventory.removeEquipment(chosenIndex);
             index -= ITEMS_PER_PAGE;
+            if (index < 0) {
+                index = 0;
+            }
             dispose();
             new ViewInventoryGUI(player, index);
 
@@ -120,6 +123,9 @@ public class ViewInventoryGUI extends JFrame {
             player.getEquipped().equip(inventory.getEquipment(chosenIndex), inventory);
             player.getInventory().removeEquipment(chosenIndex);
             index -= ITEMS_PER_PAGE;
+            if (index < 0) {
+                index = 0;
+            }
             dispose();
             new ViewInventoryGUI(player, index);
 
@@ -138,6 +144,9 @@ public class ViewInventoryGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent evt) {
             index -= ITEMS_PER_PAGE*2;
+            if (index < 0) {
+                index = 0;
+            }
             dispose();
             new ViewInventoryGUI(player, index);
 
