@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ public class ViewInventoryGUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
     private static final int ITEMS_PER_PAGE = 9;
+    private static final String IMAGES_PATH = System.getProperty("user.dir") + "/images/";
 
     private Player player;
     private Inventory inventory;
@@ -61,11 +63,11 @@ public class ViewInventoryGUI extends JFrame {
             if (index <= inventory.getSize() - 1) {
                 JPanel subPanel = new JPanel(new BorderLayout());
                 if (inventory.getEquipment(index).getType() == EquipmentType.ARMOUR) {
-                    subPanel.add(new JLabel("ARMOUR"), BorderLayout.LINE_START);
+                    subPanel.add(new JLabel("ARMOUR", new ImageIcon(IMAGES_PATH + "armouricon.png"), 0), BorderLayout.LINE_START);
                 } else if (inventory.getEquipment(index).getType() == EquipmentType.SWORD) {
-                    subPanel.add(new JLabel("SWORD"), BorderLayout.LINE_START);
+                    subPanel.add(new JLabel("SWORD", new ImageIcon(IMAGES_PATH + "swordicon.png"), 0), BorderLayout.LINE_START);
                 }
-                subPanel.add(new JTextArea(inventory.getEquipment(index).toString()), BorderLayout.CENTER);
+                subPanel.add(new JTextArea(inventory.getEquipment(index).equipmentToString()), BorderLayout.CENTER);
                 JPanel subItemAction = new JPanel(new GridLayout(1, 2));
                 subItemAction.add(new JButton(new RemoveEquipment(index)));
                 subItemAction.add(new JButton(new EquipEquipment(index)));

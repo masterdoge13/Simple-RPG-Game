@@ -125,7 +125,6 @@ public class GameMenu {
                 System.out.println("Command not found");
             }
         }
-
     }
 
     // EFFECTS: makes an equipment to add

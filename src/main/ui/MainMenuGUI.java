@@ -7,7 +7,6 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -31,13 +30,13 @@ public class MainMenuGUI extends JFrame {
     private JButton combatButton;
     private JButton buyEquipmentButton;
     private JButton viewInventoryButton;
-    private JButton equipEquipmentButton;
+    private JButton upgradeStatPointsButton;
     private JButton saveButton;
     private JButton loadButton;
     private ImageIcon combatButtonIcon;
     private ImageIcon buyEquipmentButtonIcon;
     private ImageIcon viewInventoryButtonIcon;
-    private ImageIcon equipEquipmentButtonIcon;
+    private ImageIcon upgradeStatPointsButtonIcon;
     private ImageIcon saveButtonIcon;
     private ImageIcon loadButtonIcon;
 
@@ -63,7 +62,7 @@ public class MainMenuGUI extends JFrame {
         buttonPanel.add(combatButton);
         buttonPanel.add(buyEquipmentButton);
         buttonPanel.add(viewInventoryButton);
-        buttonPanel.add(equipEquipmentButton);
+        buttonPanel.add(upgradeStatPointsButton);
         buttonPanel.add(saveButton);
         buttonPanel.add(loadButton);
         add(buttonPanel);
@@ -75,7 +74,7 @@ public class MainMenuGUI extends JFrame {
         createCombatButton();
         createBuyEquipmentButton();
         createViewInventoryButton();
-        createEquipEquipmentButton();
+        createUpgradeStatPointsButton();
         createSaveButton();
         createLoadButton();
     }
@@ -86,7 +85,7 @@ public class MainMenuGUI extends JFrame {
         combatButtonIcon = new ImageIcon(IMAGES_PATH + "combatbuttonicon.png");
         buyEquipmentButtonIcon = new ImageIcon(IMAGES_PATH + "buyequipmentbuttonicon.png");
         viewInventoryButtonIcon = new ImageIcon(IMAGES_PATH + "viewinventorybuttonicon.png");
-        equipEquipmentButtonIcon = new ImageIcon(IMAGES_PATH + "equipequipmentbuttonicon.png");
+        upgradeStatPointsButtonIcon = new ImageIcon(IMAGES_PATH + "upgradestatpointsbuttonicon.png");
         saveButtonIcon = new ImageIcon(IMAGES_PATH + "savebuttonicon.png");
         loadButtonIcon = new ImageIcon(IMAGES_PATH + "loadbuttonicon.png");
     }
@@ -101,44 +100,46 @@ public class MainMenuGUI extends JFrame {
     // EFFECTS: creates button for buying equipment
     private void createBuyEquipmentButton() {
         buyEquipmentButton = new JButton("Buy Equipment", buyEquipmentButtonIcon);
-        buyEquipmentButton.addActionListener(new buyEquipment());
+        buyEquipmentButton.addActionListener(new BuyEquipment());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for viewing the inventory and equipping equipment
     private void createViewInventoryButton() {
         viewInventoryButton = new JButton("Inventory", viewInventoryButtonIcon);
-        viewInventoryButton.addActionListener(new viewInventory());
+        viewInventoryButton.addActionListener(new ViewInventory());
     }
 
     // MODIFIES: this
-    // EFFECTS: creates button for equipping equipment
-    private void createEquipEquipmentButton() {
-        equipEquipmentButton = new JButton("Equip", equipEquipmentButtonIcon);
-        equipEquipmentButton.addActionListener(new equipEquipment());
+    // EFFECTS: creates button for upgrading stats
+    private void createUpgradeStatPointsButton() {
+        upgradeStatPointsButton = new JButton("Upgrade Stats", upgradeStatPointsButtonIcon);
+        upgradeStatPointsButton.addActionListener(new UpgradeStatPoints());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for saving
     private void createSaveButton() {
         saveButton = new JButton("Save", saveButtonIcon);
-        saveButton.addActionListener(new overwriteSaveData());
+        saveButton.addActionListener(new OverwriteSaveData());
     }
 
     // MODIFIES: this
     // EFFECTS: creates button for loading
     private void createLoadButton() {
         loadButton = new JButton("Load", loadButtonIcon);
-        loadButton.addActionListener(new loadSaveData());
+        loadButton.addActionListener(new LoadSaveData());
     }
 
     // opens up the buy equipment menu
-    private class buyEquipment extends AbstractAction {
+    private class BuyEquipment extends AbstractAction {
 
-        protected buyEquipment() {
+        protected BuyEquipment() {
             super();
         }
 
+        // MODIFIES: this
+        // EFFECTS: opens up the buy equipment menu
         @Override
         public void actionPerformed(ActionEvent evt) {
             //stub
@@ -148,12 +149,14 @@ public class MainMenuGUI extends JFrame {
     }
     
     // opens up the view inventory menu
-    private class viewInventory extends AbstractAction {
+    private class ViewInventory extends AbstractAction {
 
-        protected viewInventory() {
+        protected ViewInventory() {
             super();
         }
 
+        // MODIFIES: this
+        // EFFECTS: opens up the inventory menu
         @Override
         public void actionPerformed(ActionEvent evt) {
             dispose();
@@ -163,14 +166,15 @@ public class MainMenuGUI extends JFrame {
         }
     }
 
-    // opens up the equip equipment menu
-    private class equipEquipment extends AbstractAction {
+    // opens up the stat upgrade menu
+    private class UpgradeStatPoints extends AbstractAction {
 
-        protected equipEquipment() {
+        protected UpgradeStatPoints() {
             super();
         }
 
-
+        // MODIFIES: this
+        // EFFECTS: opens up the stat upgrade menu
         @Override
         public void actionPerformed(ActionEvent evt) {
             //stub
@@ -180,9 +184,9 @@ public class MainMenuGUI extends JFrame {
     }
 
     // saves player data and returns a pop-up notification
-    private class overwriteSaveData extends AbstractAction {
+    private class OverwriteSaveData extends AbstractAction {
 
-        protected overwriteSaveData() {
+        protected OverwriteSaveData() {
             super();
         }
 
@@ -203,9 +207,9 @@ public class MainMenuGUI extends JFrame {
     }
 
     // loads player data and returns a pop-up notification
-    private class loadSaveData extends AbstractAction {
+    private class LoadSaveData extends AbstractAction {
 
-        protected loadSaveData() {
+        protected LoadSaveData() {
             super();
         }
 
