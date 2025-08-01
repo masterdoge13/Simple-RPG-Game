@@ -45,7 +45,7 @@ public class ViewInventoryGUI extends JFrame {
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(new JTextArea(player.getEquipped().equippedToString()));
-        buttonPanel.setLayout(new GridLayout(ITEMS_PER_PAGE+2, 1));
+        buttonPanel.setLayout(new GridLayout(ITEMS_PER_PAGE + 2, 1));
         createButtons(buttonPanel);
         JPanel navigationButtons = new JPanel(new GridLayout(1, 3));
         navigationButtons.add(new JButton(new PreviousPage()));
@@ -63,9 +63,11 @@ public class ViewInventoryGUI extends JFrame {
             if (index <= inventory.getSize() - 1) {
                 JPanel subPanel = new JPanel(new BorderLayout());
                 if (inventory.getEquipment(index).getType() == EquipmentType.ARMOUR) {
-                    subPanel.add(new JLabel("ARMOUR", new ImageIcon(IMAGES_PATH + "armouricon.png"), 0), BorderLayout.LINE_START);
+                    subPanel.add(new JLabel("ARMOUR",
+                            new ImageIcon(IMAGES_PATH + "armouricon.png"), 0), BorderLayout.LINE_START);
                 } else if (inventory.getEquipment(index).getType() == EquipmentType.SWORD) {
-                    subPanel.add(new JLabel("SWORD", new ImageIcon(IMAGES_PATH + "swordicon.png"), 0), BorderLayout.LINE_START);
+                    subPanel.add(new JLabel("SWORD",
+                            new ImageIcon(IMAGES_PATH + "swordicon.png"), 0), BorderLayout.LINE_START);
                 }
                 subPanel.add(new JTextArea(inventory.getEquipment(index).equipmentToString()), BorderLayout.CENTER);
                 JPanel subItemAction = new JPanel(new GridLayout(1, 2));
@@ -80,7 +82,6 @@ public class ViewInventoryGUI extends JFrame {
             index++;
         }
     }
-
 
     // remove selected item
     private class RemoveEquipment extends AbstractAction {
@@ -103,7 +104,6 @@ public class ViewInventoryGUI extends JFrame {
             }
             dispose();
             new ViewInventoryGUI(player, index);
-
 
         }
     }
@@ -145,7 +145,7 @@ public class ViewInventoryGUI extends JFrame {
         // EFFECTS: opens the inventory GUI on the previous page of items
         @Override
         public void actionPerformed(ActionEvent evt) {
-            index -= ITEMS_PER_PAGE*2;
+            index -= ITEMS_PER_PAGE * 2;
             if (index < 0) {
                 index = 0;
             }

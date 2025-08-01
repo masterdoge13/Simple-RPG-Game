@@ -37,6 +37,8 @@ public class PlayerNameGUI extends JFrame {
             super("Name Hero");
         }
 
+        // MODIFIES: this
+        // EFFECTS: creates the pop-up window for naming the player and opens the main menu
         @Override
         public void actionPerformed(ActionEvent evt) {
             String playerName = JOptionPane.showInputDialog(null,
