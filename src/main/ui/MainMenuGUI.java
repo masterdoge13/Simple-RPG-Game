@@ -142,9 +142,8 @@ public class MainMenuGUI extends JFrame {
         // EFFECTS: opens up the buy equipment menu
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
-            
-
+            dispose();
+            new BuyEquipmentGUI(player);
         }
     }
     
@@ -161,8 +160,6 @@ public class MainMenuGUI extends JFrame {
         public void actionPerformed(ActionEvent evt) {
             dispose();
             new ViewInventoryGUI(player, 0);
-            
-
         }
     }
 
