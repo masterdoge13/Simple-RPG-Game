@@ -18,7 +18,7 @@ public class PlayerNameGUI extends JFrame {
     private static final int BASE_HEALTH = 100;
     private static final int STARTING_STAT_POINTS = 5;
     private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private static final int HEIGHT = 1000;
 
     private Player player;
 

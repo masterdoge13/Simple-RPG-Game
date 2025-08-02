@@ -19,7 +19,7 @@ import persistence.*;
 public class MainMenuGUI extends JFrame {
 
     private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private static final int HEIGHT = 1000;
     // taken from TrafficLightGUI in C3-LectureLabSolution
     private static final String IMAGES_PATH = System.getProperty("user.dir") + "/images/";
     private static final String SAVE_FILE = "./data/playerData.json";

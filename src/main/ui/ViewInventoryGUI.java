@@ -21,7 +21,7 @@ import model.EquipmentType;
 public class ViewInventoryGUI extends JFrame {
 
     private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private static final int HEIGHT = 1000;
     private static final int ITEMS_PER_PAGE = 9;
     private static final String IMAGES_PATH = System.getProperty("user.dir") + "/images/";
 
@@ -44,8 +44,8 @@ public class ViewInventoryGUI extends JFrame {
     // EFFECTS: creates a panel of buttons for the inventory screen
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(new JTextArea(player.getEquipped().equippedToString()));
         buttonPanel.setLayout(new GridLayout(ITEMS_PER_PAGE + 2, 1));
+        buttonPanel.add(new JTextArea(player.getEquipped().equippedToString()));
         createButtons(buttonPanel);
         JPanel navigationButtons = new JPanel(new GridLayout(1, 3));
         navigationButtons.add(new JButton(new PreviousPage()));
