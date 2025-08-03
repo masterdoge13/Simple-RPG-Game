@@ -62,7 +62,7 @@ public class BuyEquipmentGUI extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: creates the buttons that allow for new equipment creation
-    private void addCreateEquipmentButtons(JPanel jPanel) {
+    private void addCreateEquipmentButtons(JPanel panel) {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 1));
         JButton swordButton = new JButton("New Sword\n" + EQUIPMENT_PRICE + " Gold",
@@ -73,7 +73,7 @@ public class BuyEquipmentGUI extends JFrame {
         armourButton.addActionListener(new CreateEquipment(EquipmentType.ARMOUR));
         buttonPanel.add(swordButton);
         buttonPanel.add(armourButton);
-        jPanel.add(buttonPanel);
+        panel.add(buttonPanel);
     }
 
 

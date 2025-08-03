@@ -174,7 +174,8 @@ public class MainMenuGUI extends JFrame {
         // EFFECTS: opens up the stat upgrade menu
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //stub
+            dispose();
+            new UpgradeStatsGUI(player);
             
 
         }
