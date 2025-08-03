@@ -94,6 +94,7 @@ public class MainMenuGUI extends JFrame {
     // EFFECTS: creates button for combat
     private void createCombatButton() {
         combatButton = new JButton("Fight", combatButtonIcon);
+        combatButton.addActionListener(new Combat());
     }
 
     // MODIFIES: this
@@ -129,6 +130,22 @@ public class MainMenuGUI extends JFrame {
     private void createLoadButton() {
         loadButton = new JButton("Load", loadButtonIcon);
         loadButton.addActionListener(new LoadSaveData());
+    }
+
+    // opens up the combat menu
+    private class Combat extends AbstractAction {
+
+        protected Combat() {
+            super();
+        }
+
+        // MODIFIES: this
+        // EFFECTS: opens up the combat menu
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            dispose();
+            new CombatGUI(player);
+        }
     }
 
     // opens up the buy equipment menu
