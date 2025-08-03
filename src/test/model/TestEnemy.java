@@ -45,6 +45,17 @@ public class TestEnemy {
     }
 
     @Test
+    void testGetMaxHealth() {
+        assertEquals(100, testEnemy.getMaxHealth());
+        testDifficulty.increaseDifficulty();
+        testEnemy = new Enemy("test", 10, 100, testDifficulty);
+        assertEquals(150, testEnemy.getMaxHealth());
+        testDifficulty.increaseDifficulty();
+        testEnemy = new Enemy("test", 10, 100, testDifficulty);
+        assertEquals(200, testEnemy.getMaxHealth());
+    }
+
+    @Test
     void testGetHealth() {
         assertEquals(100, testEnemy.getHealth());
         testDifficulty.increaseDifficulty();

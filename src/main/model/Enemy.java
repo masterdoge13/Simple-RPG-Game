@@ -6,6 +6,7 @@ public class Enemy {
     private String name;
     private int attack;
     private int health;
+    private int maxHealth;
     private int baseExperience;
     private int baseGold;
     private Difficulty difficulty;
@@ -19,6 +20,7 @@ public class Enemy {
         baseExperience = 100;
         baseGold = 10;
         this.health = (int) (health * (1 + 0.5 * difficulty.getDifficulty()));
+        this.maxHealth = this.health;
         this.difficulty = difficulty;
     }
 
@@ -47,6 +49,11 @@ public class Enemy {
     // EFFECTS: returns the health
     public int getHealth() {
         return health;
+    }
+
+    // EFFECTS: returns the max health
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     // EFFECTS: returns the difficulty of the enemy
