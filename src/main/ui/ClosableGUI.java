@@ -23,31 +23,31 @@ public abstract class ClosableGUI extends JFrame implements WindowListener {
 
     @Override
     public void windowOpened(WindowEvent e) {
-        // stub
+        // pass
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        // stub
+        // pass
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        // stub
+        // pass
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        // stub
+        // pass
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        // stub
+        // pass
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        // stub
+        // pass
     }
 }
