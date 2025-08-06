@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -16,7 +15,7 @@ import model.Player;
 import persistence.*;
 
 // GUI for the main menu of the game
-public class MainMenuGUI extends JFrame {
+public class MainMenuGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 1000;
@@ -47,6 +46,7 @@ public class MainMenuGUI extends JFrame {
         jsonWriter = new JsonWriter(SAVE_FILE);
         loadIcons();
         addButtonPanel();
+        addWindowListener(this);
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

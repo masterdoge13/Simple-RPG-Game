@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,7 +17,7 @@ import model.Enemy;
 import model.Player;
 
 // graphical menu screen for combat
-public class CombatGUI extends JFrame {
+public class CombatGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 1000;
@@ -61,6 +60,7 @@ public class CombatGUI extends JFrame {
         playerAttackEffective = (int) (player.getAttack() * player.getEquipped().getTotalAttackMod());
         enemyAttackEffective = (int) (enemy.getAttack() * (1 - player.getEquipped().getTotalDefenseMod()));
         addSubPanel();
+        addWindowListener(this);
     }
 
     // MODIFIES: this
@@ -69,6 +69,7 @@ public class CombatGUI extends JFrame {
         playerAttackEffective = (int) (player.getAttack() * player.getEquipped().getTotalAttackMod());
         enemyAttackEffective = (int) (enemy.getAttack() * (1 - player.getEquipped().getTotalDefenseMod()));
         addSubPanel();
+        addWindowListener(this);
     }
 
     // MODIFIES: this

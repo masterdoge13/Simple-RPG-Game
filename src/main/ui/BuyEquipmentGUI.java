@@ -3,7 +3,6 @@ package ui;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,7 +19,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
-public class BuyEquipmentGUI extends JFrame {
+public class BuyEquipmentGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 1000;
@@ -37,6 +36,7 @@ public class BuyEquipmentGUI extends JFrame {
     public BuyEquipmentGUI(Player player) {
         this.player = player;
         addSubPanel();
+        addWindowListener(this);
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

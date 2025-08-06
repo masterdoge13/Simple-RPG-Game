@@ -2,7 +2,6 @@ package ui;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -12,7 +11,7 @@ import java.awt.event.ActionEvent;
 
 // pop-up at the beginning of the game to get player name
 // template taken from AlarmControllerUI class in AlarmSystem
-public class PlayerNameGUI extends JFrame {
+public class PlayerNameGUI extends ClosableGUI {
 
     private static final int BASE_ATTACK = 5;
     private static final int BASE_HEALTH = 100;
@@ -25,6 +24,7 @@ public class PlayerNameGUI extends JFrame {
     // EFFECTS: creates the pop-up window
     public PlayerNameGUI() {
         add(new JButton(new NameInput()));
+        addWindowListener(this);
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
