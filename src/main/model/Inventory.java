@@ -21,13 +21,18 @@ public class Inventory implements Writable {
     // EFFECTS: adds an equipment to the inventory
     public void insertEquipment(Equipment item) {
         inventoryArray.add(item);
+        EventLog.getInstance().logEvent(new Event("Added following equipment to inventory:\n" 
+                + item.equipmentToString()));
     }
 
     // REQUIRES: the inventory has an equipment at the index invIndex
     // MODIFIES: this
     // EFFECTS: removes an equipment at the specified index
     public void removeEquipment(int invIndex) {
+        Equipment item = inventoryArray.get(invIndex);
         inventoryArray.remove(invIndex);
+        EventLog.getInstance().logEvent(new Event("Removed following equipment from inventory:\n" 
+                + item.equipmentToString()));
     }
 
     // EFFECTS: returns a string of all equipment in inventory
@@ -45,6 +50,8 @@ public class Inventory implements Writable {
     // REQUIRES: the inventory has an equipment at the index invIndex
     // EFFECTS: returns the equipment at the specified index
     public Equipment getEquipment(int invIndex) {
+        EventLog.getInstance().logEvent(new Event("Retrieved following equipment from inventory:\n" 
+                + inventoryArray.get(invIndex).equipmentToString()));
         return inventoryArray.get(invIndex);
     }
 

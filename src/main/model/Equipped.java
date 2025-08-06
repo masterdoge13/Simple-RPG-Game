@@ -23,10 +23,14 @@ public class Equipped implements Writable {
         if (equipment.getType() == EquipmentType.SWORD) {
             inventory.insertEquipment(sword);
             sword = equipment;
+            EventLog.getInstance().logEvent(new Event("Equipped following equipment as a sword:\n" 
+                    + equipment.equipmentToString()));
         }
         if (equipment.getType() == EquipmentType.ARMOUR) {
             inventory.insertEquipment(armour);
             armour = equipment;
+            EventLog.getInstance().logEvent(new Event("Equipped following equipment as armour:\n" 
+                    + equipment.equipmentToString()));
         }
     }
 
