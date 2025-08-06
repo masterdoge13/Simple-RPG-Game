@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 import javax.swing.JFrame;
 
-// an abstract class that allows for actions when the window is closed
+// An abstract class that allows for actions when the window is closed
 public abstract class ClosableGUI extends JFrame implements WindowListener {
 
     // taken from ScreenPrinter in AlarmSystem

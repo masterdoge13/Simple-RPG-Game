@@ -11,8 +11,8 @@ import persistence.Writable;
 public class Inventory implements Writable {
 
     private ArrayList<Equipment> inventoryArray;
-    // EFFECTS: creates an empty inventory
     
+    // EFFECTS: creates an empty inventory
     public Inventory() {
         inventoryArray = new ArrayList<Equipment>();
     }

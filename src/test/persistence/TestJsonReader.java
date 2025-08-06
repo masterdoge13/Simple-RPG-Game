@@ -11,6 +11,7 @@ import model.EquipmentType;
 import model.Player;
 
 // template taken from JsonSerializationDemo
+// Tests for JsonReader class
 public class TestJsonReader extends JsonTest{
 
     @Test

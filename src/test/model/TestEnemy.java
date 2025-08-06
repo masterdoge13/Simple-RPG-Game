@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+// Tests for Enemy class
 public class TestEnemy {
 
     Difficulty testDifficulty;

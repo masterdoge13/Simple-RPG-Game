@@ -19,6 +19,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
+// Allows user to buy new equipment
 public class BuyEquipmentGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;

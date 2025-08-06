@@ -11,6 +11,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 // template taken from JsonSerializationDemo
+// Tests for JsonWriter class
 class TestJsonWriter extends JsonTest {
 
     @Test

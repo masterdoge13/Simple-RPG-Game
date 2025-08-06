@@ -16,7 +16,7 @@ import javax.swing.WindowConstants;
 
 import model.Player;
 
-// creates the menu for the player to upgrade their base stats
+// Creates the menu for the player to upgrade their base stats
 public class UpgradeStatsGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;

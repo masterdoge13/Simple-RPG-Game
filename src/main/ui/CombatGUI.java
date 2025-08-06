@@ -16,7 +16,7 @@ import javax.swing.WindowConstants;
 import model.Enemy;
 import model.Player;
 
-// graphical menu screen for combat
+// Graphical menu screen for combat
 public class CombatGUI extends ClosableGUI {
 
     private static final int WIDTH = 800;

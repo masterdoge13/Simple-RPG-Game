@@ -6,6 +6,7 @@ import model.EquipmentType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Tests for Json classes
 public class JsonTest {
 
     protected void checkEquipment(Equipment equipment, String name, double attackMod, double defenseMod, EquipmentType type) {

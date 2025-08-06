@@ -9,8 +9,8 @@ import model.Player;
 
 import java.awt.event.ActionEvent;
 
-// pop-up at the beginning of the game to get player name
 // template taken from AlarmControllerUI class in AlarmSystem
+// Pop-up at the beginning of the game to get player name
 public class PlayerNameGUI extends ClosableGUI {
 
     private static final int BASE_ATTACK = 5;
