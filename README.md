@@ -168,3 +168,9 @@ Retrieved following equipment from inventory:
 Tue Aug 05 22:59:35 PDT 2025
 Retrieved following equipment from inventory:
 [asdf] +0 Armour - Attack increase 0.0x - Damage reduction 55.200678217876465%
+
+## Phase 4: Task 3
+
+If I had more time to refactor and improve my project, I would change the Equipment class to be an abstract class and have different types of equipment extend that class, instead of having the EquipmentType enumeration differentiate between types of equipment. This way, it would be much easier to add other pieces of equipment, like gloves, accessories, or offhand items to the game later. It will make it much easier to separate the different equipment types in the equipped class, instead of having to get and compare the equipment type in each instance of equipment. It would also open the door for unique types of stats on top of the attack multiplier and damage reduction the game currently has.
+
+I would also refactor out an abstract class from Player and Enemy as there is a lot of dupicated code. Fields like attack, current health, max health, difficulty, name, gold, experience, and their getters/setters can be moved to an abstract class. This will allow for much more readable code and possible make it easier to create more enemy types in the future.
