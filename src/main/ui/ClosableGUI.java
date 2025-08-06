@@ -16,7 +16,7 @@ public abstract class ClosableGUI extends JFrame implements WindowListener {
     public void windowClosing(WindowEvent e) {
 
         for (Event next : EventLog.getInstance()) {
-            System.out.println(next.toString());
+            System.out.println(next.toString() + "\n");
         }
 
     }
