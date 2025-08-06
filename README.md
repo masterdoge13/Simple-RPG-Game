@@ -25,3 +25,146 @@ I have chosen to create a small game as I aspire to become a game developer. Hav
 - As a user, I want to be able to use gold to buy equipment
 - As a user, I want to be able to save my player data and progress
 - As a user, I want to be able to load my player data and progress from my last save
+
+
+## Phase 4: Task 2
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[unarmed] +0 Sword - Attack increase 1.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[unarmoured] +0 Armour - Attack increase 0.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[asdf] +0 Sword - Attack increase 18.43500521987415x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 43.07864978083435%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[asb] +0 Armour - Attack increase 0.0x - Damage reduction 68.32831281023829%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 73.38960660861136%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[bigger hands] +0 Sword - Attack increase 4.166728125364477x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[asdf] +0 Sword - Attack increase 14.474581269302135x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[asdf] +0 Armour - Attack increase 0.0x - Damage reduction 55.200678217876465%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[df] +0 Armour - Attack increase 0.0x - Damage reduction 88.02429831274976%
+
+Tue Aug 05 22:59:18 PDT 2025
+Added following equipment to inventory:
+[sdf] +0 Armour - Attack increase 0.0x - Damage reduction 66.03607013635788%
+
+Tue Aug 05 22:59:29 PDT 2025
+Added following equipment to inventory:
+[armour] +0 Armour - Attack increase 0.0x - Damage reduction 21.935350546447026%
+
+Tue Aug 05 22:59:33 PDT 2025
+Added following equipment to inventory:
+[sword] +0 Sword - Attack increase 11.161266032001581x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[unarmed] +0 Sword - Attack increase 1.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[unarmed] +0 Sword - Attack increase 1.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[unarmed] +0 Sword - Attack increase 1.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[unarmoured] +0 Armour - Attack increase 0.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[unarmoured] +0 Armour - Attack increase 0.0x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 18.43500521987415x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 18.43500521987415x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 18.43500521987415x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 43.07864978083435%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 43.07864978083435%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asb] +0 Armour - Attack increase 0.0x - Damage reduction 68.32831281023829%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asb] +0 Armour - Attack increase 0.0x - Damage reduction 68.32831281023829%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 73.38960660861136%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[abs] +0 Armour - Attack increase 0.0x - Damage reduction 73.38960660861136%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[bigger hands] +0 Sword - Attack increase 4.166728125364477x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[bigger hands] +0 Sword - Attack increase 4.166728125364477x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[bigger hands] +0 Sword - Attack increase 4.166728125364477x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 14.474581269302135x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 14.474581269302135x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Sword - Attack increase 14.474581269302135x - Damage reduction 0.0%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Armour - Attack increase 0.0x - Damage reduction 55.200678217876465%
+
+Tue Aug 05 22:59:35 PDT 2025
+Retrieved following equipment from inventory:
+[asdf] +0 Armour - Attack increase 0.0x - Damage reduction 55.200678217876465%
